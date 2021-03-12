@@ -8,8 +8,7 @@
   "scripts": {
     "dev": "npx kill-port 8080 && webpack serve --progress --profile --open --mode development",
     "build": "webpack --mode production",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && git add . && git commit -m 'deployment' && git push && gh-pages -d dist"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
