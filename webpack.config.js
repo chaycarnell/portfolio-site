@@ -14,6 +14,7 @@ module.exports = () => ({
         { from: "./public/favicon.png" },
         { from: "./public/index.html" },
         { from: "./public/CNAME" },
+        { from: "./public/.nojekyll" },
       ],
     }),
   ],
