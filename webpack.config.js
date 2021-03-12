@@ -13,9 +13,9 @@ module.exports = () => ({
       patterns: [
         { from: "./public/favicon.png" },
         { from: "./public/index.html" },
-        { from: "./CNAME" },
+        { from: "./public/CNAME" },
       ],
-    })
+    }),
   ],
   module: {
     rules: [
