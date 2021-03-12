@@ -5,7 +5,7 @@ module.exports = () => ({
   entry: ["./src/index.jsx"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/",
+    publicPath: "/",
     filename: "bundle.js",
   },
   plugins: [
@@ -44,11 +44,6 @@ module.exports = () => ({
     historyApiFallback: true,
     hot: true,
     contentBase: path.resolve(__dirname, "public"),
-    port: 8080,
-    proxy: {
-      "/api": {
-        target: `${process.env.SERVER_URL}`,
-      },
-    },
+    port: 8080
   },
 });
