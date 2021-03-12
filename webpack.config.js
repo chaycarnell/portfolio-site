@@ -13,6 +13,7 @@ module.exports = () => ({
       patterns: [
         { from: "./public/favicon.png" },
         { from: "./public/index.html" },
+        { from: "./CNAME" },
       ],
     })
   ],
