@@ -4,6 +4,7 @@
   "description": "portfolio website built with react",
   "author": "chay carnell",
   "license": "ISC",
+  "homepage": "https://chaycarnell.com",
   "scripts": {
     "dev": "npx kill-port 8080 && webpack serve --progress --profile --open --mode development",
     "build": "webpack --mode production",
