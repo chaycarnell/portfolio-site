@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ContentCard, Text, LoadingProjects, Project } from "../../components";
+import { LoadingProjects, Project } from "../../components";
 import { getEntries } from "../../services/contentful";
 
 const Render = () => {
