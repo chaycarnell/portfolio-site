@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "npx kill-port 8080 && webpack serve --progress --profile --open --mode development",
     "build": "webpack --mode production",
-    "predeploy": "npm run build",
+    "predeploy": "npm install && npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
