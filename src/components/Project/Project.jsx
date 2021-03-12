@@ -2,6 +2,12 @@ import React from "react";
 import { ContentCard, Text, RichText, Chip } from "../index";
 import * as S from "./Project.styles";
 
+// Set some rich text options
+const textOptions = {
+  pSize: "14px",
+  bSize: "14px",
+};
+
 const Render = ({ project = {} }) => {
   const {
     title,
@@ -21,8 +27,10 @@ const Render = ({ project = {} }) => {
           <img key={image.sys.id} src={image.fields.file.url} />
         ))}
       </S.DesktopCarousel>
-      <RichText document={summary}></RichText>
-      <Text type="bold">Technologies</Text>
+      <RichText document={summary} textOptions={textOptions}></RichText>
+      <Text type="bold" size={textOptions.bSize}>
+        Technologies
+      </Text>
       <S.ChipWrapper>
         {technologies.map((technology) => (
           <Chip key={technology}>{technology}</Chip>
@@ -31,7 +39,9 @@ const Render = ({ project = {} }) => {
       {!!references.length && (
         <>
           <br />
-          <Text type="bold">References</Text>
+          <Text type="bold" size={textOptions.bSize}>
+            References
+          </Text>
           <S.ReferenceWrapper>
             {references.map((reference) => (
               <Text
