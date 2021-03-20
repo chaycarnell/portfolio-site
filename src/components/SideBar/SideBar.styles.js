@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: ${({ mobile }) => (mobile ? "100%" : "280px")};
-  height: ${({ mobile }) => (mobile ? "215px" : "100%")};
+  height: ${({ mobile }) => (mobile ? "210px" : "100%")};
 `;
 
 export const InnerWrapper = styled.div`
