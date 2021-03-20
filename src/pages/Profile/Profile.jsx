@@ -9,9 +9,8 @@ const textOptions = {
 };
 
 const Render = ({ profile = {}, profileLoading = true }) => {
-
   return (
-    <>
+    <ContentCard scrollable fullWidth>
       <ContentCard margin="12px" padding="12px" center>
         {profileLoading && (
           <>
@@ -23,17 +22,32 @@ const Render = ({ profile = {}, profileLoading = true }) => {
         {!profileLoading && (
           <RichText document={profile.about} textOptions={textOptions} />
         )}
+        {!profileLoading && (
+          <ContentCard>
+            <Text type="regular" size={textOptions.pSize}>
+              Not convinced? Check out{" "}
+              <NavLink
+                to="/portfolio"
+                color="#444"
+                weight={"bold"}
+                size={textOptions.bSize}
+              >
+                my portfolio
+              </NavLink>{" "}
+              or{" "}
+              <NavLink
+                to="/feedback"
+                color="#444"
+                weight={"bold"}
+                size={textOptions.bSize}
+              >
+                see what people say about me!
+              </NavLink>
+            </Text>
+          </ContentCard>
+        )}
       </ContentCard>
-      {!profileLoading && (
-        <ContentCard center margin={"12px"} padding="12px">
-          <Text type="regular" size={textOptions.pSize}>
-            Not convinced? Check out{" "}
-            <NavLink to="/portfolio" color="#444" weight={'bold'} size={textOptions.bSize}>my portfolio</NavLink> or{" "}
-            <NavLink to="/feedback" color="#444" weight={'bold'} size={textOptions.bSize}>see what people say about me!</NavLink>
-          </Text>
-        </ContentCard>
-      )}
-    </>
+    </ContentCard>
   );
 };
 

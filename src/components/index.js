@@ -1,4 +1,4 @@
-export { default as SideBar } from "./SideBar/SideBar";
+export { default as SideBar } from "./SideBar/Sidebar";
 export { default as RichText } from "./RichText/RichText";
 export { default as Text } from "./Text/Text";
 export { default as ContentCard } from "./ContentCard/ContentCard";
@@ -10,3 +10,5 @@ export { default as Avatar } from "./Avatar/Avatar";
 export { default as DropdownMenu } from "./DropdownMenu/DropdownMenu";
 export { default as FeedbackBox } from "./FeedbackBox/FeedbackBox";
 export { default as NavLink } from "./NavLink/NavLink";
+export { default as Spacer } from "./Spacer/Spacer";
+export { default as Shell } from "./Shell/Shell";

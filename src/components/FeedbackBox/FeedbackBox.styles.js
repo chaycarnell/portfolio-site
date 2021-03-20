@@ -7,7 +7,7 @@ export const FeedbackCard = styled.div`
   border-radius: 6px;
   display: grid;
   max-width: 240px;
-  grid-gap: 4px;
+  grid-gap: 8px;
   height: fit-content;
   > p {
     margin: 0px;

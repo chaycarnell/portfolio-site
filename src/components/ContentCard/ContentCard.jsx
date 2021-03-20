@@ -6,6 +6,8 @@ const Render = ({
   center = false,
   margin = null,
   padding = null,
+  scrollable = false,
+  fullWidth = false,
   children,
 }) => (
   <ContentCard
@@ -13,6 +15,8 @@ const Render = ({
     center={center}
     margin={margin}
     padding={padding}
+    scrollable={scrollable}
+    fullWidth={fullWidth}
   >
     {children}
   </ContentCard>

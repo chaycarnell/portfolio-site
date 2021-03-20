@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import { Text, ContentCard, DropdownMenu } from "../index";
-import { Avatar, Burger } from "../index";
+import {
+  Text,
+  ContentCard,
+  Avatar,
+  Burger,
+  DropdownMenu,
+  NavLink,
+} from "../index";
 import * as S from "./SideBar.styles";
 
-const Render = ({ profile = {}, profileLoading }) => {
+const Render = ({ profile = {}, profileLoading, viewport }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const isMobile = viewport === "mobile";
   if (profileLoading) return <></>;
   return (
-    <S.Wrapper>
-      <S.MobileView>
-        <S.TopContent>
+    <S.Wrapper mobile={isMobile}>
+      <S.InnerWrapper>
+        <S.TopContent mobile={isMobile}>
           <ContentCard center>
             <Avatar src={profile.portrait.fields.file.url} />
           </ContentCard>
@@ -22,7 +29,7 @@ const Render = ({ profile = {}, profileLoading }) => {
             </Text>
           </S.TitlesWrapper>
         </S.TopContent>
-        <S.BottomContent>
+        <S.BottomContent isMobile={isMobile}>
           <S.Links>
             {profile.contacts.map((contact) => (
               <Text
@@ -47,10 +54,17 @@ const Render = ({ profile = {}, profileLoading }) => {
               Resume
             </Text>
           </S.Links>
-          <Burger open={menuOpen} setOpen={setMenuOpen} />
+          {isMobile && <Burger open={menuOpen} setOpen={setMenuOpen} />}
         </S.BottomContent>
-      </S.MobileView>
-      <DropdownMenu open={menuOpen} setOpen={setMenuOpen} />
+        {!isMobile && (
+          <S.NavWrapper>
+            <NavLink to="/">About</NavLink>
+            <NavLink to="/portfolio">Portfolio</NavLink>
+            <NavLink to="/feedback">Feedback</NavLink>
+          </S.NavWrapper>
+        )}
+      </S.InnerWrapper>
+      {isMobile && <DropdownMenu open={menuOpen} setOpen={setMenuOpen} />}
     </S.Wrapper>
   );
 };
