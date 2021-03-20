@@ -15,10 +15,9 @@ const Render = () => {
         setProfile(res.item);
         setProfileLoading(false);
       })
-      .catch(
-        () => console.log()
+      .catch(() =>
         // I mean... if this errors may as well just send people to Linkedin ... yikes
-        // window.location.replace("https://www.linkedin.com/in/chaycarnell/")
+        window.location.replace("https://www.linkedin.com/in/chaycarnell/")
       );
 
   const handleWindowResize = () => {
@@ -35,7 +34,7 @@ const Render = () => {
   if (!viewport) return <></>;
 
   // NOTE
-  // Using has router here simply because of how Github pages responds to browser router page refereshes with 404
+  // Using hash router here simply because of how Github pages responds to browser router page refereshes with 404
   return (
     <HashRouter>
       <Shell viewport={viewport}>
@@ -45,10 +44,7 @@ const Render = () => {
           viewport={viewport}
         />
         <Route exact path="/">
-          <Profile
-            profile={profile}
-            profileLoading={profileLoading}
-          />
+          <Profile profile={profile} profileLoading={profileLoading} />
         </Route>
         <Route path="/portfolio">
           <Projects />
