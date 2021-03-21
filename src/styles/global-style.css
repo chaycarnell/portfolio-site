@@ -7,8 +7,6 @@
 html,
 body {
   margin: 0;
-  height: 100%;
-  overflow: hidden;
   font-family: "Helvetica", "Verdana", sans-serif;
   color: var(--secondary);
   -webkit-font-smoothing: antialiased;
