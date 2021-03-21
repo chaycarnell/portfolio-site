@@ -1,4 +1,4 @@
-export { default as SideBar } from "./SideBar/Sidebar";
+export { default as NavBar } from "./NavBar/NavBar";
 export { default as RichText } from "./RichText/RichText";
 export { default as Text } from "./Text/Text";
 export { default as ContentCard } from "./ContentCard/ContentCard";

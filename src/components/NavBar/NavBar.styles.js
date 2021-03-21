@@ -3,11 +3,14 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: ${({ mobile }) => (mobile ? "100%" : "280px")};
   height: ${({ mobile }) => (mobile ? "210px" : "100%")};
+  @media (max-width: 400px) {
+    height: 144px;
+  }
 `;
 
 export const InnerWrapper = styled.div`
   position: relative;
-  background: #3564a5;
+  background: var(--primary);
   grid-template-columns: 160px max-content;
   height: max-content;
   width: 100%;
@@ -16,16 +19,24 @@ export const InnerWrapper = styled.div`
 `;
 
 export const TitlesWrapper = styled.div`
-  background-color: #3564a5;
+  background-color: var(--primary);
   display: grid;
   align-self: center;
   > h1 {
     margin-top: 0px;
+    @media (max-width: 400px) {
+      font-size: 24px;
+    }
+  }
+  > span {
+    @media (max-width: 400px) {
+      font-size: 18px;
+    }
   }
 `;
 
 export const Links = styled.div`
-  background-color: #3564a5;
+  background-color: var(--primary);
   height: 30px;
   display: grid;
   align-items: center;
@@ -37,11 +48,14 @@ export const Links = styled.div`
 
 export const TopContent = styled.div`
   display: grid;
-  background: #3564a5;
+  background: var(--primary);
   justify-content: center;
   margin-bottom: 5px;
   grid-template-columns: ${({ mobile }) =>
     mobile ? "160px max-content" : "1fr"};
+  @media (max-width: 400px) {
+    grid-template-columns: 92px max-content;
+  }
 `;
 
 export const BottomContent = styled.div`
@@ -49,7 +63,7 @@ export const BottomContent = styled.div`
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   overflow: hidden;
   display: grid;
-  background: #3564a5;
+  background: var(--primary);
   padding: 8px;
   margin-top: ${({ isMobile }) => (isMobile ? "0px" : "12px")};
   grid-template-columns: ${({ isMobile }) =>

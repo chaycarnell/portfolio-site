@@ -4,8 +4,8 @@ export const DropdownMenu = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #3564a5;
-  background-color: #3564a5;
+  background: var(--primary);
+  background-color: var(--primary);
   transform: ${({ open }) => (open ? "translateY(0)" : "translateY(-100%)")};
   width: inherit;
   text-align: center;

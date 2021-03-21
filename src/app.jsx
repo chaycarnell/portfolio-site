@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { HashRouter, Route, Redirect } from "react-router-dom";
 import { Profile, Projects, Feedback } from "./pages";
-import { Shell, SideBar } from "./components";
+import { Shell, NavBar } from "./components";
+import { useViewport, LayoutProvider } from "./context/LayoutContext";
 import { getEntry } from "./services/contentful";
 
-const Render = () => {
+const Content = () => {
   const [profile, setProfile] = useState({});
+  const { viewport, isMobile } = useViewport();
   const [profileLoading, setProfileLoading] = useState(true);
-  const [viewport, setViewport] = useState(null);
 
   const getProfile = () =>
     getEntry("1AjG0SYrUE0XHSaqNxFlIv")
@@ -20,42 +21,39 @@ const Render = () => {
         window.location.replace("https://www.linkedin.com/in/chaycarnell/")
       );
 
-  const handleWindowResize = () => {
-    window.innerWidth >= 860 ? setViewport("desktop") : setViewport("mobile");
-  };
-
   useEffect(() => {
     getProfile();
-    handleWindowResize();
-    window.addEventListener("resize", handleWindowResize);
-    return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
-  if (!viewport) return <></>;
-
-  // NOTE
-  // Using hash router here simply because of how Github pages responds to browser router page refereshes with 404
   return (
-    <HashRouter>
-      <Shell viewport={viewport}>
-        <SideBar
-          profile={profile}
-          profileLoading={profileLoading}
-          viewport={viewport}
-        />
-        <Route exact path="/">
-          <Profile profile={profile} profileLoading={profileLoading} />
-        </Route>
-        <Route path="/portfolio">
-          <Projects />
-        </Route>
-        <Route path="/feedback">
-          <Feedback />
-        </Route>
-        <Redirect to="/" />
-      </Shell>
-    </HashRouter>
+    <Shell viewport={viewport}>
+      <NavBar
+        profile={profile}
+        profileLoading={profileLoading}
+        isMobile={isMobile}
+      />
+      <Route exact path="/">
+        <Profile profile={profile} profileLoading={profileLoading} />
+      </Route>
+      <Route path="/portfolio">
+        <Projects />
+      </Route>
+      <Route path="/feedback">
+        <Feedback />
+      </Route>
+      <Redirect to="/" />
+    </Shell>
   );
 };
+
+// Wrap router and contexts
+// NOTE: Using hash router here simply because of how Github pages responds to browser router page refereshes with 404
+const Render = () => (
+  <LayoutProvider breakpointPx={860}>
+    <HashRouter>
+      <Content />
+    </HashRouter>
+  </LayoutProvider>
+);
 
 export default Render;

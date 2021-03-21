@@ -20,7 +20,7 @@ export const ReferenceWrapper = styled.div`
 
 export const DesktopCarousel = styled(Carousel)`
   margin: 10px;
-  min-width: 300px;
+  min-width: 260px;
   >* .slide {
     background-color: rgba(0,0,0,0.05);
   }

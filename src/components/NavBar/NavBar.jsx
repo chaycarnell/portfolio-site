@@ -7,11 +7,10 @@ import {
   DropdownMenu,
   NavLink,
 } from "../index";
-import * as S from "./SideBar.styles";
+import * as S from "./NavBar.styles";
 
-const Render = ({ profile = {}, profileLoading, viewport }) => {
+const Render = ({ profile = {}, profileLoading = true, isMobile = false }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const isMobile = viewport === "mobile";
   if (profileLoading) return <></>;
   return (
     <S.Wrapper mobile={isMobile}>
