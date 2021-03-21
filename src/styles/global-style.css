@@ -4,14 +4,19 @@
   --white: #fff;
 }
 
-html,
+html {
+  height: 100vh;
+}
+
 body {
   margin: 0;
+  height: 100%;
   font-family: "Helvetica", "Verdana", sans-serif;
   color: var(--secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 #root {
   display: grid;
 }
