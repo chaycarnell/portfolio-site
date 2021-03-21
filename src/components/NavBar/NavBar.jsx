@@ -9,13 +9,13 @@ import {
 } from "../index";
 import * as S from "./NavBar.styles";
 
-const Render = ({ profile = {}, profileLoading = true, isMobile = false }) => {
+const Render = ({ profile = {}, profileLoading = true, isMobile = false, showHeader = true }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   if (profileLoading) return <></>;
   return (
-    <S.Wrapper mobile={isMobile}>
+    <S.Wrapper mobile={isMobile} showHeader={showHeader}>
       <S.InnerWrapper>
-        <S.TopContent mobile={isMobile}>
+        <S.TopContent mobile={isMobile} showHeader={showHeader}>
           <ContentCard center>
             <Avatar src={profile.portrait.fields.file.url} />
           </ContentCard>
@@ -28,7 +28,7 @@ const Render = ({ profile = {}, profileLoading = true, isMobile = false }) => {
             </Text>
           </S.TitlesWrapper>
         </S.TopContent>
-        <S.BottomContent isMobile={isMobile}>
+        <S.BottomContent isMobile={isMobile} showHeader={showHeader}>
           <S.Links>
             {profile.contacts.map((contact) => (
               <Text

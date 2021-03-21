@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FeedbackBox, ContentCard } from "../../components";
+import { FeedbackBox, Page } from "../../components";
 import { getEntries } from "../../services/contentful";
 
 const Render = () => {
@@ -25,9 +25,9 @@ const Render = () => {
   }, []);
 
   return (
-    <ContentCard scrollable fullWidth>
+    <Page scrollable fullWidth>
       <FeedbackBox feedback={feedback} loading={feedbackLoading} />
-    </ContentCard>
+    </Page>
   );
 };
 

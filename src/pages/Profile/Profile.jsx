@@ -1,6 +1,6 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
-import { ContentCard, RichText, Text, NavLink } from "../../components";
+import { Page, ContentCard, RichText, Text, NavLink } from "../../components";
 
 // Set some rich text options
 const textOptions = {
@@ -10,7 +10,7 @@ const textOptions = {
 
 const Render = ({ profile = {}, profileLoading = true }) => {
   return (
-    <ContentCard scrollable fullWidth>
+    <Page scrollable fullWidth>
       <ContentCard margin="12px" padding="12px" center>
         {profileLoading && (
           <>
@@ -47,7 +47,7 @@ const Render = ({ profile = {}, profileLoading = true }) => {
           </ContentCard>
         )}
       </ContentCard>
-    </ContentCard>
+    </Page>
   );
 };
 

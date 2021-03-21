@@ -1,10 +1,20 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const transition = css`
+  ${({ showHeader }) =>
+    showHeader ? "max-height 0.15s ease-in" : "max-height 0.15s ease-out"};
+`;
+
+const maxHeight = css`
+  ${({ showHeader }) => (showHeader ? "210px" : "48px")};
+`;
 
 export const Wrapper = styled.div`
   width: ${({ mobile }) => (mobile ? "100%" : "280px")};
-  height: ${({ mobile }) => (mobile ? "210px" : "100%")};
+  max-height: ${({ mobile }) => (mobile ? maxHeight : "100%")};
+  transition: ${({ mobile }) => (mobile ? transition : "none")};
   @media (max-width: 400px) {
-    height: 144px;
+    max-height: ${({ showHeader }) => (showHeader ? "144px" : "48px")};
   }
 `;
 
@@ -50,16 +60,21 @@ export const TopContent = styled.div`
   display: grid;
   background: var(--primary);
   justify-content: center;
-  margin-bottom: 5px;
+  margin-bottom: ${({ showHeader }) => (showHeader ? "5px" : "0px")};
+  overflow: hidden;
+  max-height: ${({ showHeader }) => (showHeader ? "210px" : "0px")};
+  transition: ${({ mobile }) => (mobile ? transition : "none")};
   grid-template-columns: ${({ mobile }) =>
     mobile ? "160px max-content" : "1fr"};
   @media (max-width: 400px) {
     grid-template-columns: 92px max-content;
+    max-height: ${({ showHeader }) => (showHeader ? "144px" : "0px")};
   }
 `;
 
 export const BottomContent = styled.div`
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: ${({ showHeader }) =>
+    showHeader ? "1px solid rgba(255, 255, 255, 0.5)" : "none"};
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   overflow: hidden;
   display: grid;

@@ -7,7 +7,7 @@ import { getEntry } from "./services/contentful";
 
 const Content = () => {
   const [profile, setProfile] = useState({});
-  const { viewport, isMobile } = useViewport();
+  const { viewport, isMobile, showHeader } = useViewport();
   const [profileLoading, setProfileLoading] = useState(true);
 
   const getProfile = () =>
@@ -31,6 +31,7 @@ const Content = () => {
         profile={profile}
         profileLoading={profileLoading}
         isMobile={isMobile}
+        showHeader={showHeader}
       />
       <Route exact path="/">
         <Profile profile={profile} profileLoading={profileLoading} />

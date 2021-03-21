@@ -7,6 +7,7 @@ export const useViewport = () => useContext(LayoutContext);
 export const LayoutProvider = ({ breakpointPx = 860, children }) => {
   const [viewport, setViewport] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
 
   // Set viewport on window resize events
   const handleWindowResize = () =>
@@ -19,7 +20,9 @@ export const LayoutProvider = ({ breakpointPx = 860, children }) => {
     handleWindowResize();
     window.addEventListener("resize", handleWindowResize);
     // Cleanup
-    return () => window.removeEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -28,7 +31,9 @@ export const LayoutProvider = ({ breakpointPx = 860, children }) => {
   }, [viewport]);
 
   return (
-    <LayoutContext.Provider value={{ viewport, isMobile, breakpointPx }}>
+    <LayoutContext.Provider
+      value={{ viewport, isMobile, breakpointPx, showHeader, setShowHeader }}
+    >
       {children}
     </LayoutContext.Provider>
   );

@@ -2,6 +2,7 @@ export { default as NavBar } from "./NavBar/NavBar";
 export { default as RichText } from "./RichText/RichText";
 export { default as Text } from "./Text/Text";
 export { default as ContentCard } from "./ContentCard/ContentCard";
+export { default as Page } from "./Page/Page";
 export { default as LoadingProjects } from "./LoadingProjects/LoadingProjects";
 export { default as Project } from "./Project/Project";
 export { default as Chip } from "./Chip/Chip";

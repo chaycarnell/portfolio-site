@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  LoadingProjects,
-  Project,
-  ContentCard,
-  Spacer,
-} from "../../components";
+import { LoadingProjects, Project, Page, Spacer } from "../../components";
 import { getEntries } from "../../services/contentful";
 
 const Render = () => {
@@ -30,14 +25,14 @@ const Render = () => {
   }, []);
 
   return (
-    <ContentCard scrollable fullWidth>
+    <Page scrollable fullWidth>
       {projectsLoading && <LoadingProjects />}
       {!projectsLoading &&
         projects.map((project) => (
           <Project key={project.sys.id} project={project} />
         ))}
       <Spacer space={"12px"} />
-    </ContentCard>
+    </Page>
   );
 };
 
