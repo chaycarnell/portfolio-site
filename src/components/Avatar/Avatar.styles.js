@@ -11,7 +11,7 @@ export const Avatar = styled.img`
   height: 140px;
   border-radius: 50%;
   border-style: solid;
-  border-color: #fff;
+  border-color:  var(--white);
   margin: 8px;
   box-shadow: 0 0 8px 1px #b8b8b8;
 `;
