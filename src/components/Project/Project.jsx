@@ -22,7 +22,7 @@ const Render = ({ project = {} }) => {
       <Text type="header" size="24px" center>
         {title}
       </Text>
-      <S.DesktopCarousel>
+      <S.DesktopCarousel swipeable={false}>
         {projectImage.map((image) => (
           <img key={image.sys.id} src={image.fields.file.url} />
         ))}
