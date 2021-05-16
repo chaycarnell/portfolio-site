@@ -18,8 +18,7 @@ const Content = () => {
       })
       .catch(() =>
         // I mean... if this errors may as well just send people to Linkedin ... yikes
-        // window.location.replace("https://www.linkedin.com/in/chaycarnell/")
-        console.log('')
+        window.location.replace("https://www.linkedin.com/in/chaycarnell/")
       );
 
   useEffect(() => {

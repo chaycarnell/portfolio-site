@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 // A basic viewport context to help with responsive layout conditional rendering
-// soemthing like https://www.npmjs.com/package/react-responsive feels a bit overkill for this site
+// something like https://www.npmjs.com/package/react-responsive feels a bit overkill for this site
 const LayoutContext = React.createContext();
 export const useViewport = () => useContext(LayoutContext);
 export const LayoutProvider = ({ breakpointPx = 860, children }) => {

@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "portfolio website built with react",
+  "description": "portfolio website built with react using contenful CMS deployed to GitHub Pages",
   "author": "chay carnell",
   "license": "ISC",
   "homepage": ".",

@@ -31,4 +31,5 @@ export const AvatarSkeleton = styled(Skeleton)`
   border-color:  var(--white);
   margin: 8px;
   box-shadow: 0 0 8px 1px #b8b8b8;
+  opacity: 0.7;
 `;

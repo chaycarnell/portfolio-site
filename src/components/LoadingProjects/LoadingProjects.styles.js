@@ -5,4 +5,5 @@ export const Wrapper = styled.div`
   grid-gap: 10px;
   margin: 12px;
   padding: 12px;
+  opacity: 0.7;
 `;

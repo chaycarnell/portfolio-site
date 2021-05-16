@@ -62,7 +62,6 @@ export const TopContent = styled.div`
   justify-content: center;
   margin-bottom: ${({ showHeader }) => (showHeader ? "5px" : "0px")};
   overflow: hidden;
-  max-height: ${({ showHeader }) => (showHeader ? "210px" : "0px")};
   transition: ${({ mobile }) => (mobile ? transition : "none")};
   grid-template-columns: ${({ mobile }) =>
     mobile ? "160px max-content" : "1fr"};

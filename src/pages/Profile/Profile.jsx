@@ -12,39 +12,38 @@ const Render = ({ profile = {}, profileLoading = true }) => {
   return (
     <Page scrollable fullWidth>
       <ContentCard margin="12px" padding="12px" center>
-        {profileLoading && (
+        {(profileLoading && (
           <>
             <Skeleton count={6} />
             <br />
             <Skeleton count={6} />
           </>
-        )}
-        {!profileLoading && (
-          <RichText document={profile.about} textOptions={textOptions} />
-        )}
-        {!profileLoading && (
-          <ContentCard>
-            <Text type="regular" size={textOptions.pSize}>
-              Not convinced? Check out{" "}
-              <NavLink
-                to="/portfolio"
-                color="#444"
-                weight={"bold"}
-                size={textOptions.bSize}
-              >
-                my portfolio
-              </NavLink>{" "}
-              or{" "}
-              <NavLink
-                to="/feedback"
-                color="#444"
-                weight={"bold"}
-                size={textOptions.bSize}
-              >
-                see what people say about me!
-              </NavLink>
-            </Text>
-          </ContentCard>
+        )) || (
+          <>
+            <RichText document={profile.about} textOptions={textOptions} />
+            <ContentCard>
+              <Text type="regular" size={textOptions.pSize}>
+                Not convinced? Check out{" "}
+                <NavLink
+                  to="/portfolio"
+                  color="#444"
+                  weight={"bold"}
+                  size={textOptions.bSize}
+                >
+                  my portfolio
+                </NavLink>{" "}
+                or{" "}
+                <NavLink
+                  to="/feedback"
+                  color="#444"
+                  weight={"bold"}
+                  size={textOptions.bSize}
+                >
+                  see what people say about me!
+                </NavLink>
+              </Text>
+            </ContentCard>
+          </>
         )}
       </ContentCard>
     </Page>
