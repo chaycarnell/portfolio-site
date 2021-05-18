@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { ContentCard, Text, RichText, Chip } from "../index";
+import { Text, RichText, Chip } from "../index";
 import * as S from "./Project.styles";
 
 // Set some rich text options
@@ -41,7 +41,7 @@ const Render = ({ project = {} }) => {
   }, []);
 
   return (
-    <ContentCard margin={"8px"} padding={"8px"} border center>
+    <S.ProjectWrapper>
       <Text type="header" size="24px" center>
         {title}
       </Text>
@@ -84,7 +84,7 @@ const Render = ({ project = {} }) => {
           </S.ReferenceWrapper>
         </>
       )}
-    </ContentCard>
+    </S.ProjectWrapper>
   );
 };
 
