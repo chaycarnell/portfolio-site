@@ -1,10 +1,9 @@
 import { createClient } from "contentful";
-import { CMS_SPACE, CMS_KEY } from "../config";
 
 // Initialise contentful client
 const client = createClient({
-  space: CMS_SPACE,
-  accessToken: CMS_KEY,
+  space: 'r62v13wsfg0x',
+  accessToken: 'v1jWRnRaEDzsbNNXwx7yeHxz6NoInSKnmfKh3oai5IQ',
 });
 
 /**

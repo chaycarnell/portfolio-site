@@ -9,7 +9,7 @@ const Render = () => {
   const getProjects = () =>
     getEntries({
       content_type: "project",
-      order: "sys.updatedAt",
+      order: "fields.position",
     })
       .then((res) => {
         setProjects(res.items);
