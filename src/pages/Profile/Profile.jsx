@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import ReactGA from "react-ga";
 import Skeleton from "react-loading-skeleton";
 import { Page, ContentCard, RichText, Text, NavLink } from "../../components";
 
@@ -9,6 +10,10 @@ const textOptions = {
 };
 
 const Render = ({ profile = {}, profileLoading = true }) => {
+  useEffect(() => {
+    ReactGA.pageview("Profile");
+  }, []);
+
   return (
     <Page scrollable fullWidth>
       <ContentCard margin="12px" padding="12px" center>

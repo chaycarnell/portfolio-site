@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactGA from 'react-ga';
 import { LoadingProjects, Project, Page, Spacer } from "../../components";
 import { getEntries } from "../../services/contentful";
 
@@ -21,6 +22,7 @@ const Render = () => {
       );
 
   useEffect(() => {
+    ReactGA.pageview("Projects");
     getProjects();
   }, []);
 

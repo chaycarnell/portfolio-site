@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactGA from "react-ga";
 import {
   Text,
   ContentCard,
@@ -9,7 +10,12 @@ import {
 } from "../index";
 import * as S from "./NavBar.styles";
 
-const Render = ({ profile = {}, profileLoading = true, isMobile = false, showHeader = true }) => {
+const Render = ({
+  profile = {},
+  profileLoading = true,
+  isMobile = false,
+  showHeader = true,
+}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   if (profileLoading) return <></>;
   return (
@@ -35,7 +41,13 @@ const Render = ({ profile = {}, profileLoading = true, isMobile = false, showHea
                 key={contact.name}
                 type="link"
                 color="#FFF"
-                onClick={() => window.open(contact.value, "_blank")}
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Interaction",
+                    action: `View ${contact.name}`,
+                  });
+                  window.open(contact.value, "_blank");
+                }}
               >
                 {contact.name}
               </Text>
@@ -43,12 +55,16 @@ const Render = ({ profile = {}, profileLoading = true, isMobile = false, showHea
             <Text
               type="link"
               color="#FFF"
-              onClick={() =>
+              onClick={() => {
+                ReactGA.event({
+                  category: "Interaction",
+                  action: "Download Resume",
+                });
                 window.open(
                   `https://${profile.resume.fields.file.url}`,
                   "_blank"
-                )
-              }
+                );
+              }}
             >
               Resume
             </Text>
