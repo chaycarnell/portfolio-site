@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./Avatar.styles";
 import { SkeletonTheme } from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Render = ({ src }) => {
   const [imageLoaded, setImageLoaded] = useState(false);

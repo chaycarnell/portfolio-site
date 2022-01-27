@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter, Route, Redirect } from "react-router-dom";
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Profile, Projects, Feedback } from "./pages";
 import { Shell, NavBar } from "./components";
 import { useViewport, LayoutProvider } from "./context/LayoutContext";
@@ -33,16 +33,24 @@ const Content = () => {
         isMobile={isMobile}
         showHeader={showHeader}
       />
-      <Route exact path="/">
-        <Profile profile={profile} profileLoading={profileLoading} />
-      </Route>
-      <Route path="/portfolio">
-        <Projects />
-      </Route>
-      <Route path="/feedback">
-        <Feedback />
-      </Route>
-      <Redirect to="/" />
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <Profile profile={profile} profileLoading={profileLoading} />
+          }
+        />
+        <Route path="/portfolio" element={<Projects />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route
+          exact
+          path="*"
+          element={
+            <Profile profile={profile} profileLoading={profileLoading} />
+          }
+        />
+      </Routes>
     </Shell>
   );
 };
