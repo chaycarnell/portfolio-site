@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 import ReactGA from 'react-ga';
 import App from './app';
 import './styles/global-style.css';
 
 ReactGA.initialize('UA-69278053-1');
 
-const Render = () => <App />;
+const root = createRoot(document.querySelector('#root'));
 
-ReactDOM.render(<Render />, document.querySelector('#root'));
+root.render(<App />)
