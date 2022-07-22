@@ -7,7 +7,7 @@
   "author": "chay carnell",
   "scripts": {
     "build": "webpack --mode production",
-    "deploy": "npm run build && git add . && git commit -m 'deployment' && git push && gh-pages -d dist",
+    "deploy": "gh-pages -d dist",
     "dev": "npx kill-port 8080 && webpack serve --progress --profile --open --mode development",
     "sort": "npx sort-package-json"
   },
