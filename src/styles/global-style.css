@@ -1,0 +1,41 @@
+:root {
+  --primary: #113c77;
+  --secondary: #555;
+  --white: #fff;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: "Helvetica", "Verdana", sans-serif;
+  color: var(--secondary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: grid;
+  height: 100%;
+}
+
+/* Scroll bar styles*/
+::-webkit-scrollbar {
+  border-radius: 2px;
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
