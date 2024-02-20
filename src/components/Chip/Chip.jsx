@@ -1,6 +1,7 @@
 import React from "react";
-import { Chip } from "./Chip.styles";
+
 import { Text } from "../index";
+import { Chip } from "./Chip.styles";
 
 const Render = ({ color = "#3564a5", textColor = "#FFF", children }) => {
   return (

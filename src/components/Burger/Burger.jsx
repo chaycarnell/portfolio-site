@@ -1,4 +1,5 @@
 import React from "react";
+
 import * as S from './Burger.styles';
 
 const Render = ({ open, setOpen, ...props }) => (

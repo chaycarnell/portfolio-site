@@ -1,19 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
-// A basic viewport context to help with responsive layout conditional rendering
-// something like https://www.npmjs.com/package/react-responsive feels a bit overkill for this site
-const LayoutContext = React.createContext();
-export const useViewport = () => useContext(LayoutContext);
+import { LayoutContext } from "./LayoutContext";
+
 export const LayoutProvider = ({ breakpointPx = 860, children }) => {
   const [viewport, setViewport] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
 
   // Set viewport on window resize events
-  const handleWindowResize = () =>
-    window.innerWidth >= breakpointPx
-      ? setViewport("desktop")
-      : setViewport("mobile");
+  const handleWindowResize = useCallback(
+    () =>
+      window.innerWidth >= breakpointPx
+        ? setViewport("desktop")
+        : setViewport("mobile"),
+    [breakpointPx]
+  );
 
   useEffect(() => {
     // Call initially on first render
@@ -23,7 +24,7 @@ export const LayoutProvider = ({ breakpointPx = 860, children }) => {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, []);
+  }, [handleWindowResize]);
 
   useEffect(() => {
     // Update boolean isMobile value whenever viewport value changes

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ReactGA from "react-ga4";
 import Skeleton from "react-loading-skeleton";
+
 import { ContentCard, NavLink, Page, RichText, Text } from "../../components";
 
 // Set some rich text options

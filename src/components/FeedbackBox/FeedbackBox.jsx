@@ -1,5 +1,6 @@
 import React from "react";
-import { RichText, Text } from "../../components";
+
+import { RichText, Text } from "..";
 import * as S from "./FeedbackBox.styles";
 
 // Set some rich text options

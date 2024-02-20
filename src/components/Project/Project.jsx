@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { Text, RichText, Chip } from "../index";
+
+import { Chip, RichText, Text } from "../index";
 import * as S from "./Project.styles";
 
 // Set some rich text options
@@ -21,7 +22,7 @@ const Render = ({ project = {} }) => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   // Get image source files loaded to browser and set loaded state once load is complete
-  const getImages = async () => {
+  const getImages = useCallback(async () => {
     await Promise.all(
       projectImage.map(
         (image) =>
@@ -34,11 +35,11 @@ const Render = ({ project = {} }) => {
     );
     // Set loaded state
     setImagesLoaded(true);
-  };
+  }, [projectImage]);
 
   useEffect(() => {
     getImages();
-  }, []);
+  }, [getImages]);
 
   return (
     <S.ProjectWrapper>

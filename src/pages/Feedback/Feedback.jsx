@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
+
 import { FeedbackBox, Page } from "../../components";
 import { getEntries } from "../../services/contentful";
 

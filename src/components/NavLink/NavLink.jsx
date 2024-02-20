@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const NavLink = styled(Link)`
   font-size: ${({ size }) => (size ? size : "initial")};

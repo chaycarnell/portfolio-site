@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import { useViewport } from "./../../context/LayoutContext";
+import React, { useCallback, useEffect } from "react";
+
+import { useViewport } from "../../context/LayoutContext";
 import { Page } from "./Page.styles";
 
 const Render = ({
@@ -14,14 +15,17 @@ const Render = ({
   const { setShowHeader } = useViewport();
 
   // Handle scroll
-  const handleScroll = (e) => {
-    const atTop = e.target.scrollTop === 0;
-    // Only fag as "hideable" if the scroll container has a greater height than
-    // window height, otherwise don't bother hiding
-    const shouldHide = e.target.scrollHeight > window.innerHeight +  100;
-    if (atTop) setShowHeader(true);
-    if (!atTop && shouldHide) setShowHeader(false);
-  };
+  const handleScroll = useCallback(
+    (e) => {
+      const atTop = e.target.scrollTop === 0;
+      // Only fag as "hideable" if the scroll container has a greater height than
+      // window height, otherwise don't bother hiding
+      const shouldHide = e.target.scrollHeight > window.innerHeight + 100;
+      if (atTop) setShowHeader(true);
+      if (!atTop && shouldHide) setShowHeader(false);
+    },
+    [setShowHeader]
+  );
 
   useEffect(() => {
     document
@@ -31,7 +35,7 @@ const Render = ({
       document
         .getElementById("pageWrapper")
         .removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
     <Page
