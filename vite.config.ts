@@ -8,6 +8,7 @@ export default defineConfig({
       "/rest": "http://localhost:4001",
     },
   },
+  base: "/",
   plugins: [react()],
   build: {
     outDir: "./dist",
