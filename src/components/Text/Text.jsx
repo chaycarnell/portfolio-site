@@ -18,7 +18,7 @@ const Render = ({
           {children}
         </S.Header>
       );
-    case "regular":
+      case "regular":
       return (
         <S.Paragraph
           size={size}
@@ -28,6 +28,17 @@ const Render = ({
         >
           {children}
         </S.Paragraph>
+      );
+    case "padded":
+      return (
+        <S.PaddedParagraph
+          size={size}
+          color={color}
+          noSelect={noSelect}
+          center={center}
+        >
+          {children}
+        </S.PaddedParagraph>
       );
     case "bold":
       return (

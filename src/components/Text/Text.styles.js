@@ -24,6 +24,16 @@ export const Header = styled.h1`
   text-align: ${({ center }) => (center ? "center" : "initial")};
 `;
 
+export const PaddedParagraph = styled.p`
+  ${defaults}
+  ${({ noSelect }) => noSelect && disableSelect}
+  font-size: ${({ size }) => size || defaults.size};
+  color: ${({ color }) => color || defaults.color};
+  padding: 0px 24px;
+  margin: 12px 12px 0px 12px;
+  text-align: ${({ center }) => (center ? "center" : "initial")};
+`;
+
 export const Paragraph = styled.p`
   ${defaults}
   ${({ noSelect }) => noSelect && disableSelect}

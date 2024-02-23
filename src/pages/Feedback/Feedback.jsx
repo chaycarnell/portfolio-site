@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
 
-import { FeedbackBox, Page } from "../../components";
+import { FeedbackBox, Page, Text } from "../../components";
 import { getEntries } from "../../services/contentful";
 
 const Render = () => {
@@ -29,6 +29,7 @@ const Render = () => {
 
   return (
     <Page scrollable fullWidth>
+      <Text type="padded" size={"16px"}>Samples below are from both formal performance reviews and recognition. All feedback can be verified at request.</Text>
       <FeedbackBox feedback={feedback} loading={feedbackLoading} />
     </Page>
   );
