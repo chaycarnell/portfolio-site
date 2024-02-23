@@ -2,25 +2,26 @@ import styled from "styled-components";
 
 export const FeedbackCard = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 12px;
+  margin-bottom: 12px;
   padding: 12px;
   border-radius: 6px;
-  display: grid;
-  max-width: 240px;
-  grid-gap: 8px;
-  height: fit-content;
-  > p {
-    margin: 0px;
-  }
+  background: white;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  break-inside: avoid;
 `;
 
 export const FeedbackWrapper = styled.div`
   margin: 12px;
   padding: 12px;
+  column-count: 3;
+  column-gap: 12px;
   max-width: 1024px;
-  flex-direction: row;
-  display: flex;
-  flex-wrap: wrap;
-  justify-self: center;
-  justify-content: center;
+  @media (max-width: 768px) {
+    column-count: 2;
+  }
+  @media (max-width:  480px) {
+    column-count: 1;
+  }
 `;

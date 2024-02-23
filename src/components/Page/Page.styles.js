@@ -9,4 +9,5 @@ export const Page = styled.div`
   overflow-y: ${({ scrollable }) => (scrollable ? "auto" : "unset")};
   border-radius: 6px;
   max-width: ${({ fullWidth }) => (fullWidth ? "100%" : "1024px")};
+  justify-content: center;
 `;
