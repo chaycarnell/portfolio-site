@@ -18,7 +18,7 @@ const disableSelect = {
 
 export const Header = styled.h1`
   ${defaults}
-  ${({ noSelect }) => noSelect && disableSelect}
+  ${({ $noSelect }) => $noSelect && disableSelect}
   font-size: ${({ size }) => size || "32px"};
   color: ${({ color }) => color || defaults.color};
   text-align: ${({ center }) => (center ? "center" : "initial")};
@@ -26,38 +26,38 @@ export const Header = styled.h1`
 
 export const PaddedParagraph = styled.p`
   ${defaults}
-  ${({ noSelect }) => noSelect && disableSelect}
+  ${({ $noSelect }) => $noSelect && disableSelect}
   font-size: ${({ size }) => size || defaults.size};
   color: ${({ color }) => color || defaults.color};
   padding: 0px 24px;
   margin: 12px 12px 0px 12px;
-  text-align: ${({ center }) => (center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? "center" : "initial")};
 `;
 
 export const Paragraph = styled.p`
   ${defaults}
-  ${({ noSelect }) => noSelect && disableSelect}
+  ${({ $noSelect }) => $noSelect && disableSelect}
   font-size: ${({ size }) => size || defaults.size};
   color: ${({ color }) => color || defaults.color};
-  text-align: ${({ center }) => (center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? "center" : "initial")};
 `;
 
 export const Bold = styled.span`
   ${defaults}
-  ${({ noSelect }) => noSelect && disableSelect}
+  ${({ $noSelect }) => $noSelect && disableSelect}
   font-weight: bolder;
   font-size: ${({ size }) => size || defaults.size};
   color: ${({ color }) => color || defaults.color};
-  text-align: ${({ center }) => (center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? "center" : "initial")};
 `;
 
 export const Link = styled.a`
   ${defaults}
   cursor: pointer;
-  ${({ noSelect }) => noSelect && disableSelect}
+  ${({ $noSelect }) => $noSelect && disableSelect}
   font-weight: bolder;
   text-decoration: underline;
   font-size: ${({ size }) => size || defaults.size};
   color: ${({ color }) => color || defaults.color};
-  text-align: ${({ center }) => (center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? "center" : "initial")};
 `;

@@ -40,12 +40,12 @@ const Render = ({
   return (
     <Page
       id="pageWrapper"
-      border={border}
-      center={center}
-      margin={margin}
-      padding={padding}
-      scrollable={scrollable}
-      fullWidth={fullWidth}
+      $border={border}
+      $center={center}
+      $margin={margin}
+      $padding={padding}
+      $scrollable={scrollable}
+      $fullWidth={fullWidth}
     >
       {children}
     </Page>

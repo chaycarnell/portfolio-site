@@ -28,7 +28,7 @@ const Content = () => {
   }, []);
 
   return (
-    <Shell viewport={viewport}>
+    <Shell $viewport={viewport}>
       <NavBar
         profile={profile}
         profileLoading={profileLoading}

@@ -33,7 +33,7 @@ const Render = () => {
         projects.map((project) => (
           <Project key={project.sys.id} project={project} />
         ))}
-      <Spacer space={"12px"} />
+      <Spacer $space={"12px"} />
     </Page>
   );
 };

@@ -20,9 +20,9 @@ const Render = ({
   const [menuOpen, setMenuOpen] = useState(false);
   if (profileLoading) return <></>;
   return (
-    <S.Wrapper mobile={isMobile} showHeader={showHeader}>
+    <S.Wrapper $mobile={isMobile} $showHeader={showHeader}>
       <S.InnerWrapper>
-        <S.TopContent mobile={isMobile} showHeader={showHeader}>
+        <S.TopContent $mobile={isMobile} $showHeader={showHeader}>
           <ContentCard center>
             <Avatar src={profile.portrait.fields.file.url} />
           </ContentCard>
@@ -35,7 +35,7 @@ const Render = ({
             </Text>
           </S.TitlesWrapper>
         </S.TopContent>
-        <S.BottomContent isMobile={isMobile} showHeader={showHeader}>
+        <S.BottomContent $mobile={isMobile} $showHeader={showHeader}>
           <S.Links>
             {profile.contacts.map((contact) => (
               <Text

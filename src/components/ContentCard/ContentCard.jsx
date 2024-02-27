@@ -12,12 +12,12 @@ const Render = ({
   children,
 }) => (
   <ContentCard
-    border={border}
-    center={center}
-    margin={margin}
-    padding={padding}
-    scrollable={scrollable}
-    fullWidth={fullWidth}
+    $border={border}
+    $center={center}
+    $margin={margin}
+    $padding={padding}
+    $scrollable={scrollable}
+    $fullWidth={fullWidth}
   >
     {children}
   </ContentCard>

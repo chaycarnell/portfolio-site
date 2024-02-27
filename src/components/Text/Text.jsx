@@ -14,7 +14,7 @@ const Render = ({
   switch (type) {
     case "header":
       return (
-        <S.Header size={size} color={color} noSelect={noSelect} center={center}>
+        <S.Header size={size} color={color} $noSelect={noSelect} $center={center}>
           {children}
         </S.Header>
       );
@@ -23,8 +23,8 @@ const Render = ({
         <S.Paragraph
           size={size}
           color={color}
-          noSelect={noSelect}
-          center={center}
+          $noSelect={noSelect}
+          $center={center}
         >
           {children}
         </S.Paragraph>
@@ -34,15 +34,15 @@ const Render = ({
         <S.PaddedParagraph
           size={size}
           color={color}
-          noSelect={noSelect}
-          center={center}
+          $noSelect={noSelect}
+          $center={center}
         >
           {children}
         </S.PaddedParagraph>
       );
     case "bold":
       return (
-        <S.Bold size={size} color={color} noSelect={noSelect} center={center}>
+        <S.Bold size={size} color={color} $noSelect={noSelect} $center={center}>
           {children}
         </S.Bold>
       );
@@ -52,8 +52,8 @@ const Render = ({
           size={size}
           color={color}
           onClick={() => onClick && onClick()}
-          noSelect={noSelect}
-          center={center}
+          $noSelect={noSelect}
+          $center={center}
         >
           {children}
         </S.Link>
@@ -63,8 +63,8 @@ const Render = ({
         <S.Paragraph
           size={size}
           color={color}
-          noSelect={noSelect}
-          center={center}
+          $noSelect={noSelect}
+          $center={center}
         >
           {children}
         </S.Paragraph>

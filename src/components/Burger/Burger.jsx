@@ -6,7 +6,7 @@ const Render = ({ open, setOpen, ...props }) => (
   <S.Burger
     aria-label="Toggle menu"
     aria-expanded={open}
-    open={open}
+    $open={open}
     onClick={() => setOpen(!open)}
     {...props}
   >
