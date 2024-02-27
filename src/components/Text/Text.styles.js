@@ -21,7 +21,7 @@ export const Header = styled.h1`
   ${({ $noSelect }) => $noSelect && disableSelect}
   font-size: ${({ size }) => size || "32px"};
   color: ${({ color }) => color || defaults.color};
-  text-align: ${({ center }) => (center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? "center" : "initial")};
 `;
 
 export const PaddedParagraph = styled.p`
