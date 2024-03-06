@@ -21,13 +21,13 @@
     "@contentful/rich-text-react-renderer": "15.19.4",
     "@contentful/rich-text-types": "16.3.4",
     "axios": "1.6.7",
-    "contentful": "10.6.22",
+    "contentful": "10.6.25",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-ga4": "2.1.0",
     "react-loading-skeleton": "3.4.0",
     "react-responsive-carousel": "3.2.23",
-    "react-router-dom": "6.22.1",
+    "react-router-dom": "6.22.2",
     "styled-components": "6.1.8"
   },
   "devDependencies": {
