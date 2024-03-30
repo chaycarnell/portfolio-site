@@ -15,7 +15,7 @@ echo "${BLUE}##${NC}"
 echo "${BLUE}#####################################################${NC}"
 
 # Audit script, exits on high or above vulnerabilities
-yarn audit; [[ $? -ge 8 ]] && exit 1 || exit 0
+/bin/bash -c 'yarn audit; [[ $? -ge 8 ]] && exit 1 || exit 0'
 
 # Branch prefix validation
 branch_name=$(git rev-parse --abbrev-ref HEAD)
