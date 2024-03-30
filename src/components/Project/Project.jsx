@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import React, { useCallback, useEffect, useState } from 'react';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-import { Chip, RichText, Text } from "../index";
-import * as S from "./Project.styles";
+import { Chip, RichText, Text } from '../index';
+import * as S from './Project.styles';
 
 // Set some rich text options
 const textOptions = {
-  pSize: "14px",
-  bSize: "14px",
+  pSize: '14px',
+  bSize: '14px',
 };
 
 const Render = ({ project = {} }) => {
@@ -25,13 +25,13 @@ const Render = ({ project = {} }) => {
   const getImages = useCallback(async () => {
     await Promise.all(
       projectImage.map(
-        (image) =>
-          new Promise((resolve) => {
+        image =>
+          new Promise(resolve => {
             const imageElement = new Image();
             imageElement.onload = () => resolve(image.fields.file.url);
             imageElement.src = image.fields.file.url;
-          })
-      )
+          }),
+      ),
     );
     // Set loaded state
     setImagesLoaded(true);
@@ -48,13 +48,13 @@ const Render = ({ project = {} }) => {
       </Text>
       {imagesLoaded ? (
         <S.DesktopCarousel swipeable={false}>
-          {projectImage.map((image) => (
+          {projectImage.map(image => (
             <img key={image.sys.id} src={image.fields.file.url} />
           ))}
         </S.DesktopCarousel>
       ) : (
         <SkeletonTheme color="#9b9b9b" highlightColor="#FFF">
-          <Skeleton style={{ paddingTop: "100%" }} />
+          <Skeleton style={{ paddingTop: '100%' }} />
         </SkeletonTheme>
       )}
       <RichText document={summary} textOptions={textOptions}></RichText>
@@ -62,7 +62,7 @@ const Render = ({ project = {} }) => {
         Technologies
       </Text>
       <S.ChipWrapper>
-        {technologies.map((technology) => (
+        {technologies.map(technology => (
           <Chip key={technology}>{technology}</Chip>
         ))}
       </S.ChipWrapper>
@@ -73,12 +73,11 @@ const Render = ({ project = {} }) => {
             References
           </Text>
           <S.ReferenceWrapper>
-            {references.map((reference) => (
+            {references.map(reference => (
               <Text
                 key={reference.title}
                 type="link"
-                onClick={() => window.open(reference.link, "_blank")}
-              >
+                onClick={() => window.open(reference.link, '_blank')}>
                 {reference.title}
               </Text>
             ))}

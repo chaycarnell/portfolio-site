@@ -1,5 +1,5 @@
-import Skeleton from "react-loading-skeleton";
-import styled from "styled-components";
+import Skeleton from 'react-loading-skeleton';
+import styled from 'styled-components';
 
 export const Avatar = styled.img`
   @media (max-width: 400px) {

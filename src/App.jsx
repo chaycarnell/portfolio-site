@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
-import { NavBar, Shell } from "./components";
-import { useViewport } from "./context/LayoutContext";
-import { LayoutProvider } from "./context/LayoutProvider";
-import { Feedback, Profile, Projects } from "./pages";
-import { getEntry } from "./services/contentful";
+import { NavBar, Shell } from './components';
+import { useViewport } from './context/LayoutContext';
+import { LayoutProvider } from './context/LayoutProvider';
+import { Feedback, Profile, Projects } from './pages';
+import { getEntry } from './services/contentful';
 
 const Content = () => {
   const [profile, setProfile] = useState({});
@@ -13,14 +13,14 @@ const Content = () => {
   const [profileLoading, setProfileLoading] = useState(true);
 
   const getProfile = () =>
-    getEntry("1AjG0SYrUE0XHSaqNxFlIv")
-      .then((res) => {
+    getEntry('1AjG0SYrUE0XHSaqNxFlIv')
+      .then(res => {
         setProfile(res.item);
         setProfileLoading(false);
       })
       .catch(() =>
         // I mean... if this errors may as well just send people to Linkedin ... yikes
-        window.location.replace("https://www.linkedin.com/in/chaycarnell/")
+        window.location.replace('https://www.linkedin.com/in/chaycarnell/'),
       );
 
   useEffect(() => {
@@ -58,9 +58,9 @@ const Content = () => {
 };
 
 // Wrap router and contexts
-// NOTE: Using hash router here simply because of how Github pages responds to browser router page refereshes with 404
+// NOTE: Using hash router here simply because of how Github pages responds to browser router page refreshes with 404
 const Render = () => (
-  <LayoutProvider breakpointPx={860}>
+  <LayoutProvider mobileBreakPointPx={860}>
     <HashRouter>
       <Content />
     </HashRouter>

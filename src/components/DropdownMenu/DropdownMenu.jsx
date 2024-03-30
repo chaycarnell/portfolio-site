@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { NavLink } from "../index";
-import * as S from "./DropdownMenu.styles";
+import { NavLink } from '../index';
+import * as S from './DropdownMenu.styles';
 
 const Render = ({ open, setOpen, ...props }) => {
   const closeMenu = () => setOpen(false);

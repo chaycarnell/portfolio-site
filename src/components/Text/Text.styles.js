@@ -1,27 +1,27 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const defaults = {
-  "font-size": "12px",
-  "font-family": `'Helvetica', 'Verdana', sans-serif`,
-  color: "#444",
-  "-webkit-font-smoothing": "antialiased",
-  "-moz-osx-font-smoothing": "grayscale",
+  'font-size': '12px',
+  'font-family': `'Helvetica', 'Verdana', sans-serif`,
+  color: '#444',
+  '-webkit-font-smoothing': 'antialiased',
+  '-moz-osx-font-smoothing': 'grayscale',
 };
 
 const disableSelect = {
-  "-webkit-touch-callout": "none" /* iOS Safari */,
-  "-webkit-user-select": "none" /* Safari */,
-  "-moz-user-select": "none" /* Old versions of Firefox */,
-  "-ms-user-select": "none" /* Internet Explorer/Edge */,
-  "user-select": "none",
+  '-webkit-touch-callout': 'none' /* iOS Safari */,
+  '-webkit-user-select': 'none' /* Safari */,
+  '-moz-user-select': 'none' /* Old versions of Firefox */,
+  '-ms-user-select': 'none' /* Internet Explorer/Edge */,
+  'user-select': 'none',
 };
 
 export const Header = styled.h1`
   ${defaults}
   ${({ $noSelect }) => $noSelect && disableSelect}
-  font-size: ${({ size }) => size || "32px"};
+  font-size: ${({ size }) => size || '32px'};
   color: ${({ color }) => color || defaults.color};
-  text-align: ${({ $center }) => ($center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? 'center' : 'initial')};
 `;
 
 export const PaddedParagraph = styled.p`
@@ -31,7 +31,7 @@ export const PaddedParagraph = styled.p`
   color: ${({ color }) => color || defaults.color};
   padding: 0px 24px;
   margin: 12px 12px 0px 12px;
-  text-align: ${({ $center }) => ($center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? 'center' : 'initial')};
 `;
 
 export const Paragraph = styled.p`
@@ -39,7 +39,7 @@ export const Paragraph = styled.p`
   ${({ $noSelect }) => $noSelect && disableSelect}
   font-size: ${({ size }) => size || defaults.size};
   color: ${({ color }) => color || defaults.color};
-  text-align: ${({ $center }) => ($center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? 'center' : 'initial')};
 `;
 
 export const Bold = styled.span`
@@ -48,7 +48,7 @@ export const Bold = styled.span`
   font-weight: bolder;
   font-size: ${({ size }) => size || defaults.size};
   color: ${({ color }) => color || defaults.color};
-  text-align: ${({ $center }) => ($center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? 'center' : 'initial')};
 `;
 
 export const Link = styled.a`
@@ -59,5 +59,5 @@ export const Link = styled.a`
   text-decoration: underline;
   font-size: ${({ size }) => size || defaults.size};
   color: ${({ color }) => color || defaults.color};
-  text-align: ${({ $center }) => ($center ? "center" : "initial")};
+  text-align: ${({ $center }) => ($center ? 'center' : 'initial')};
 `;

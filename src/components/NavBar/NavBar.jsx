@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ReactGA from "react-ga4";
+import React, { useState } from 'react';
+import ReactGA from 'react-ga4';
 
 import {
   Avatar,
@@ -8,8 +8,8 @@ import {
   DropdownMenu,
   NavLink,
   Text,
-} from "../index";
-import * as S from "./NavBar.styles";
+} from '../index';
+import * as S from './NavBar.styles';
 
 const Render = ({
   profile = {},
@@ -30,26 +30,25 @@ const Render = ({
             <Text type="header" color="#FFF" center>
               {profile.name}
             </Text>
-            <Text type="bold" color="#FFF" size={"24px"} center>
+            <Text type="bold" color="#FFF" size={'24px'} center>
               {profile.role}
             </Text>
           </S.TitlesWrapper>
         </S.TopContent>
         <S.BottomContent $mobile={isMobile} $showHeader={showHeader}>
           <S.Links>
-            {profile.contacts.map((contact) => (
+            {profile.contacts.map(contact => (
               <Text
                 key={contact.name}
                 type="link"
                 color="#FFF"
                 onClick={() => {
                   ReactGA.event({
-                    category: "Interaction",
+                    category: 'Interaction',
                     action: `View ${contact.name}`,
                   });
-                  window.open(contact.value, "_blank");
-                }}
-              >
+                  window.open(contact.value, '_blank');
+                }}>
                 {contact.name}
               </Text>
             ))}
@@ -58,15 +57,14 @@ const Render = ({
               color="#FFF"
               onClick={() => {
                 ReactGA.event({
-                  category: "Interaction",
-                  action: "Download Resume",
+                  category: 'Interaction',
+                  action: 'Download Resume',
                 });
                 window.open(
                   `https://${profile.resume.fields.file.url}`,
-                  "_blank"
+                  '_blank',
                 );
-              }}
-            >
+              }}>
               Resume
             </Text>
           </S.Links>

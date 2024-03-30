@@ -10,4 +10,4 @@ ReactGA.initialize('G-YM8FR742SY');
 
 const root = createRoot(document.querySelector('#root'));
 
-root.render(<App />)
+root.render(<App />);

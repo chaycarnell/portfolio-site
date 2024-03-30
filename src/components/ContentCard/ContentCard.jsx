@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { ContentCard } from "./ContentCard.styles";
+import { ContentCard } from './ContentCard.styles';
 
 const Render = ({
   border = false,
@@ -17,8 +17,7 @@ const Render = ({
     $margin={margin}
     $padding={padding}
     $scrollable={scrollable}
-    $fullWidth={fullWidth}
-  >
+    $fullWidth={fullWidth}>
     {children}
   </ContentCard>
 );

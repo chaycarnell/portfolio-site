@@ -1,60 +1,61 @@
-import React from "react";
+import React from 'react';
 
-import * as S from "./Text.styles";
+import * as S from './Text.styles';
 
 const Render = ({
-  type = "regular",
+  type = 'regular',
   size,
   color,
-  children = "",
+  children = '',
   onClick = null,
   noSelect = false,
   center = false,
 }) => {
   switch (type) {
-    case "header":
+    case 'header':
       return (
-        <S.Header size={size} color={color} $noSelect={noSelect} $center={center}>
+        <S.Header
+          size={size}
+          color={color}
+          $noSelect={noSelect}
+          $center={center}>
           {children}
         </S.Header>
       );
-      case "regular":
+    case 'regular':
       return (
         <S.Paragraph
           size={size}
           color={color}
           $noSelect={noSelect}
-          $center={center}
-        >
+          $center={center}>
           {children}
         </S.Paragraph>
       );
-    case "padded":
+    case 'padded':
       return (
         <S.PaddedParagraph
           size={size}
           color={color}
           $noSelect={noSelect}
-          $center={center}
-        >
+          $center={center}>
           {children}
         </S.PaddedParagraph>
       );
-    case "bold":
+    case 'bold':
       return (
         <S.Bold size={size} color={color} $noSelect={noSelect} $center={center}>
           {children}
         </S.Bold>
       );
-    case "link":
+    case 'link':
       return (
         <S.Link
           size={size}
           color={color}
           onClick={() => onClick && onClick()}
           $noSelect={noSelect}
-          $center={center}
-        >
+          $center={center}>
           {children}
         </S.Link>
       );
@@ -64,8 +65,7 @@ const Render = ({
           size={size}
           color={color}
           $noSelect={noSelect}
-          $center={center}
-        >
+          $center={center}>
           {children}
         </S.Paragraph>
       );

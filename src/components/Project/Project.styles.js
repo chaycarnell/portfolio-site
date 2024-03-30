@@ -1,7 +1,7 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-import { Carousel } from "react-responsive-carousel";
-import styled from "styled-components";
+import { Carousel } from 'react-responsive-carousel';
+import styled from 'styled-components';
 
 export const ProjectWrapper = styled.div`
   display: grid;

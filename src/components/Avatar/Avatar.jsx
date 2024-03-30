@@ -1,9 +1,9 @@
-import "react-loading-skeleton/dist/skeleton.css";
+import 'react-loading-skeleton/dist/skeleton.css';
 
-import React, { useState } from "react";
-import { SkeletonTheme } from "react-loading-skeleton";
+import React, { useState } from 'react';
+import { SkeletonTheme } from 'react-loading-skeleton';
 
-import * as S from "./Avatar.styles";
+import * as S from './Avatar.styles';
 
 const Render = ({ src }) => {
   const [imageLoaded, setImageLoaded] = useState(false);

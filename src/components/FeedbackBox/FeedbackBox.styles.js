@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FeedbackCard = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -21,7 +21,7 @@ export const FeedbackWrapper = styled.div`
   @media (max-width: 768px) {
     column-count: 2;
   }
-  @media (max-width:  480px) {
+  @media (max-width: 480px) {
     column-count: 1;
   }
 `;

@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect } from 'react';
 
-import { useViewport } from "../../context/LayoutContext";
-import { Page } from "./Page.styles";
+import { useViewport } from '../../context/LayoutContext';
+import { Page } from './Page.styles';
 
 const Render = ({
   border = false,
@@ -16,7 +16,7 @@ const Render = ({
 
   // Handle scroll
   const handleScroll = useCallback(
-    (e) => {
+    e => {
       const atTop = e.target.scrollTop === 0;
       // Only fag as "hideable" if the scroll container has a greater height than
       // window height, otherwise don't bother hiding
@@ -24,17 +24,17 @@ const Render = ({
       if (atTop) setShowHeader(true);
       if (!atTop && shouldHide) setShowHeader(false);
     },
-    [setShowHeader]
+    [setShowHeader],
   );
 
   useEffect(() => {
     document
-      .getElementById("pageWrapper")
-      .addEventListener("scroll", handleScroll);
+      .getElementById('pageWrapper')
+      .addEventListener('scroll', handleScroll);
     return () =>
       document
-        .getElementById("pageWrapper")
-        .removeEventListener("scroll", handleScroll);
+        .getElementById('pageWrapper')
+        .removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
   return (
@@ -45,8 +45,7 @@ const Render = ({
       $margin={margin}
       $padding={padding}
       $scrollable={scrollable}
-      $fullWidth={fullWidth}
-    >
+      $fullWidth={fullWidth}>
       {children}
     </Page>
   );

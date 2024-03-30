@@ -1,18 +1,18 @@
-import React, { useEffect } from "react";
-import ReactGA from "react-ga4";
-import Skeleton from "react-loading-skeleton";
+import React, { useEffect } from 'react';
+import ReactGA from 'react-ga4';
+import Skeleton from 'react-loading-skeleton';
 
-import { ContentCard, NavLink, Page, RichText, Text } from "../../components";
+import { ContentCard, NavLink, Page, RichText, Text } from '../../components';
 
 // Set some rich text options
 const textOptions = {
-  pSize: "16px",
-  bSize: "18px",
+  pSize: '16px',
+  bSize: '18px',
 };
 
 const Render = ({ profile = {}, profileLoading = true }) => {
   useEffect(() => {
-    ReactGA.send({ hitType: "pageview", page: "/profile", title: "profile" });
+    ReactGA.send({ hitType: 'pageview', page: '/profile', title: 'profile' });
   }, []);
 
   return (
@@ -29,22 +29,20 @@ const Render = ({ profile = {}, profileLoading = true }) => {
             <RichText document={profile.about} textOptions={textOptions} />
             <ContentCard>
               <Text type="regular" size={textOptions.pSize}>
-                Not convinced? Check out{" "}
+                Not convinced? Check out{' '}
                 <NavLink
                   to="/portfolio"
                   color="#444"
-                  weight={"bold"}
-                  size={textOptions.bSize}
-                >
+                  weight={'bold'}
+                  size={textOptions.bSize}>
                   my portfolio
-                </NavLink>{" "}
-                or{" "}
+                </NavLink>{' '}
+                or{' '}
                 <NavLink
                   to="/feedback"
                   color="#444"
-                  weight={"bold"}
-                  size={textOptions.bSize}
-                >
+                  weight={'bold'}
+                  size={textOptions.bSize}>
                   see what people say about me!
                 </NavLink>
               </Text>

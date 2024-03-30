@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import * as S from './Burger.styles';
 
@@ -8,8 +8,7 @@ const Render = ({ open, setOpen, ...props }) => (
     aria-expanded={open}
     $open={open}
     onClick={() => setOpen(!open)}
-    {...props}
-  >
+    {...props}>
     <span />
     <span />
     <span />

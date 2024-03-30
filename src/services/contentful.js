@@ -1,9 +1,9 @@
-import { createClient } from "contentful";
+import { createClient } from 'contentful';
 
 // Initialise contentful client
 const client = createClient({
-  space: "r62v13wsfg0x",
-  accessToken: "v1jWRnRaEDzsbNNXwx7yeHxz6NoInSKnmfKh3oai5IQ",
+  space: 'r62v13wsfg0x',
+  accessToken: 'v1jWRnRaEDzsbNNXwx7yeHxz6NoInSKnmfKh3oai5IQ',
 });
 
 /**
@@ -11,10 +11,10 @@ const client = createClient({
  * @param {*} entryId entry ID to return
  * @param {*} query optional  query object
  */
-export const getEntry = async (entryId = "", query = {}) =>
+export const getEntry = async (entryId = '', query = {}) =>
   client
     .getEntry(entryId, query)
-    .then((res) => ({ success: true, item: res.fields }))
+    .then(res => ({ success: true, item: res.fields }))
     .catch(() => ({ success: false, item: null }));
 
 /**
@@ -24,7 +24,7 @@ export const getEntry = async (entryId = "", query = {}) =>
 export const getEntries = async (query = {}) =>
   client
     .getEntries(query)
-    .then((res) => ({
+    .then(res => ({
       success: true,
       items: res.items,
     }))
