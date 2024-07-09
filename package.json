@@ -30,34 +30,34 @@
     }
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "15.19.6",
-    "@contentful/rich-text-types": "16.3.5",
-    "axios": "1.6.8",
-    "contentful": "10.8.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "@contentful/rich-text-react-renderer": "15.22.1",
+    "@contentful/rich-text-types": "16.6.1",
+    "axios": "1.7.2",
+    "contentful": "10.12.7",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-ga4": "2.1.0",
     "react-loading-skeleton": "3.4.0",
     "react-responsive-carousel": "3.2.23",
-    "react-router-dom": "6.22.3",
-    "styled-components": "6.1.8"
+    "react-router-dom": "6.24.1",
+    "styled-components": "6.1.11"
   },
   "devDependencies": {
-    "@types/react": "^18.2.75",
-    "@types/react-dom": "^18.2.24",
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "husky": "^9.0.11",
-    "prettier": "^3.2.5",
-    "typescript": "^5.4.4",
-    "vite": "^5.2.8"
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3"
   }
 }
