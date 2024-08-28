@@ -15,7 +15,8 @@
     "check:outdated": "yarn outdated || true",
     "check:types": "tsc --noEmit",
     "dev": "vite",
-    "lint": "eslint . --ext ts,js,tsx,jsx --report-unused-disable-directives --max-warnings 0",
+    "generate:contentful-types": "cf-content-types-generator -s REPLACE_ME  -t REPLACE_ME -o ./src/types",
+    "lint": "tsc --noEmit && eslint . --ext ts,js,tsx,jsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "yarn run lint --fix",
     "prepare": "husky",
     "prettier:write": "prettier --write \"**/*.{js,ts,tsx,json}\"",
@@ -30,34 +31,35 @@
     }
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "15.22.1",
-    "@contentful/rich-text-types": "16.6.1",
-    "axios": "1.7.2",
-    "contentful": "10.12.7",
+    "@contentful/rich-text-react-renderer": "15.22.10",
+    "@contentful/rich-text-types": "16.8.4",
+    "axios": "1.7.5",
+    "contentful": "10.15.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-ga4": "2.1.0",
     "react-loading-skeleton": "3.4.0",
     "react-responsive-carousel": "3.2.23",
-    "react-router-dom": "6.24.1",
-    "styled-components": "6.1.11"
+    "react-router-dom": "6.26.1",
+    "styled-components": "6.1.12"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
+    "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@typescript-eslint/parser": "^7.16.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "cf-content-types-generator": "^2.15.5",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.7",
+    "eslint-plugin-react-refresh": "^0.4.11",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "husky": "^9.0.11",
-    "prettier": "^3.3.2",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.3"
+    "husky": "^9.1.5",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2"
   }
 }
