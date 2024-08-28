@@ -1,0 +1,18 @@
+import 'react-loading-skeleton/dist/skeleton.css';
+
+import Skeleton from 'react-loading-skeleton';
+
+import * as S from './LoadingProjects.styles';
+
+const Render = () => (
+  <S.Wrapper>
+    <Skeleton />
+    <Skeleton height={250} />
+    <Skeleton />
+    <Skeleton height={250} />
+    <Skeleton />
+    <Skeleton height={250} />
+  </S.Wrapper>
+);
+
+export default Render;
