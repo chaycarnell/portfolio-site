@@ -1,6 +1,6 @@
+import { useViewport } from '@context/LayoutContext/LayoutContext';
 import React, { useCallback, useEffect } from 'react';
 
-import { useViewport } from '../../context/LayoutContext/LayoutContext';
 import { Page } from './Page.styles';
 
 const Render = ({

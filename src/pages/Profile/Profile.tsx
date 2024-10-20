@@ -1,10 +1,10 @@
+import { ContentCard, NavLink, Page, RichText, Text } from '@components';
+import { TypeProfile } from '@sharedTypes/contenful';
+import { PageRoutes } from '@sharedTypes/enums';
 import { Entry } from 'contentful';
 import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import Skeleton from 'react-loading-skeleton';
-
-import { ContentCard, NavLink, Page, RichText, Text } from '../../components';
-import { TypeProfile } from '../../types/contenful';
 
 // Default rich text options
 const textOptions = {
@@ -20,7 +20,11 @@ const Render = ({
   profileLoading: boolean;
 }) => {
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/profile', title: 'profile' });
+    ReactGA.send({
+      hitType: 'pageview',
+      page: PageRoutes.PROFILE,
+      title: 'profile',
+    });
   }, []);
 
   const profileFields = profile?.['fields'];
@@ -44,7 +48,7 @@ const Render = ({
               <Text type="regular" size={textOptions.pSize}>
                 Not convinced? Check out{' '}
                 <NavLink
-                  to="/portfolio"
+                  to={PageRoutes.PORTFOLIO}
                   color="#444"
                   weight={'bold'}
                   size={textOptions.bSize}>
@@ -52,7 +56,7 @@ const Render = ({
                 </NavLink>{' '}
                 or{' '}
                 <NavLink
-                  to="/feedback"
+                  to={PageRoutes.FEEDBACK}
                   color="#444"
                   weight={'bold'}
                   size={textOptions.bSize}>

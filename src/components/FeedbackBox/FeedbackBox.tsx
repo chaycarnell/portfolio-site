@@ -1,7 +1,7 @@
+import { TypeFeedback } from '@sharedTypes/contenful';
 import { EntryCollection } from 'contentful';
 
-import { TypeFeedback } from '../../types/contenful';
-import { RichText, Text } from '..';
+import { RichText, Text } from '../';
 import * as S from './FeedbackBox.styles';
 
 // Default rich text options

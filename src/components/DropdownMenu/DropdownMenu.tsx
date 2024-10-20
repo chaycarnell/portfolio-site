@@ -1,3 +1,4 @@
+import { PageRoutes } from '@sharedTypes/enums';
 import { useCallback } from 'react';
 
 import { NavLink } from '../index';
@@ -14,13 +15,13 @@ const Render = ({
   const closeMenu = useCallback(() => setOpen(false), [setOpen]);
   return (
     <S.DropdownMenu open={open} aria-hidden={!open} {...props}>
-      <NavLink to="/" onClick={closeMenu}>
+      <NavLink to={PageRoutes.ROOT} onClick={closeMenu}>
         About
       </NavLink>
-      <NavLink to="/portfolio" onClick={closeMenu}>
+      <NavLink to={PageRoutes.PORTFOLIO} onClick={closeMenu}>
         Portfolio
       </NavLink>
-      <NavLink to="/feedback" onClick={closeMenu}>
+      <NavLink to={PageRoutes.FEEDBACK} onClick={closeMenu}>
         Feedback
       </NavLink>
     </S.DropdownMenu>

@@ -20,7 +20,18 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "baseUrl": "./",
+
+    /* Custom Alias Paths */
+    "paths": {
+      "@components": ["src/components"],
+      "@pages": ["src/pages"],
+      "@config/*": ["src/config/*"],
+      "@sharedTypes/*": ["src/types/*"],
+      "@context/*": ["src/context/*"],
+      "@services/*": ["src/services/*"]
+    }
   },
   "include": ["./src"],
   "exclude": ["./dist"],

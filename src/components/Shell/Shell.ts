@@ -1,6 +1,5 @@
+import { ViewPortType } from '@context/LayoutContext/LayoutContext.types';
 import styled from 'styled-components';
-
-import { ViewPortType } from '../../context/LayoutContext/LayoutContext.types';
 
 const Shell = styled.div<{ $viewport: ViewPortType | null }>`
   display: grid;

@@ -1,12 +1,5 @@
 import * as S from './Text.styles';
-
-enum SupportedTextTypes {
-  REGULAR = 'regular',
-  HEADER = 'header',
-  PADDED = 'padded',
-  BOLD = 'bold',
-  LINK = 'link',
-}
+import { SupportedTextType, SupportedTextTypes } from './types';
 
 const Render = ({
   type = SupportedTextTypes.REGULAR,
@@ -17,7 +10,7 @@ const Render = ({
   noSelect,
   center,
 }: React.PropsWithChildren<{
-  type: `${SupportedTextTypes}`;
+  type: SupportedTextType;
   size?: string;
   color?: string;
   onClick?: () => void;

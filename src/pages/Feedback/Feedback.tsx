@@ -1,10 +1,11 @@
+import { FeedbackBox, Page, Text } from '@components';
+import { ExternalLinks } from '@config/links';
+import { client } from '@services/contentful/contentful';
+import { TypeFeedback } from '@sharedTypes/contenful';
+import { PageRoutes } from '@sharedTypes/enums';
 import { EntryCollection } from 'contentful';
 import { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
-
-import { FeedbackBox, Page, Text } from '../../components';
-import { client } from '../../services/contentful';
-import { TypeFeedback } from '../../types/contenful';
 
 const Render = () => {
   const [feedback, setFeedback] =
@@ -19,14 +20,15 @@ const Render = () => {
       .then(res => {
         setFeedback(res);
       })
-      .catch(() =>
-        // I mean... if this errors may as well just send people to Linkedin ... yikes
-        window.location.replace('https://www.linkedin.com/in/chaycarnell/'),
-      );
+      .catch(() => window.location.replace(ExternalLinks.LINKEDIN));
   };
 
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/feedback', title: 'feedback' });
+    ReactGA.send({
+      hitType: 'pageview',
+      page: PageRoutes.FEEDBACK,
+      title: 'feedback',
+    });
     getFeedback();
   }, []);
 

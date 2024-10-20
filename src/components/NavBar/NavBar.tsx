@@ -1,7 +1,8 @@
+import { TypeProfile } from '@sharedTypes/contenful';
+import { PageRoutes } from '@sharedTypes/enums';
 import React, { useState } from 'react';
 import ReactGA from 'react-ga4';
 
-import { TypeProfile } from '../../types/contenful';
 import {
   Avatar,
   Burger,
@@ -79,9 +80,9 @@ const Render = ({
         </S.BottomContent>
         {!isMobile && (
           <S.NavWrapper>
-            <NavLink to="/">About</NavLink>
-            <NavLink to="/portfolio">Portfolio</NavLink>
-            <NavLink to="/feedback">Feedback</NavLink>
+            <NavLink to={PageRoutes.ROOT}>About</NavLink>
+            <NavLink to={PageRoutes.PORTFOLIO}>Portfolio</NavLink>
+            <NavLink to={PageRoutes.FEEDBACK}>Feedback</NavLink>
           </S.NavWrapper>
         )}
       </S.InnerWrapper>

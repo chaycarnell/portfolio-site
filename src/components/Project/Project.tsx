@@ -1,7 +1,7 @@
+import { TypeProject } from '@sharedTypes/contenful';
 import { useCallback, useEffect, useState } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-import { TypeProject } from '../../types/contenful';
 import { Chip, RichText, Text } from '../index';
 import * as S from './Project.styles';
 

@@ -1,10 +1,11 @@
+import { LoadingProjects, Page, Project, Spacer } from '@components';
+import { ExternalLinks } from '@config/links';
+import { client } from '@services/contentful/contentful';
+import { TypeProject } from '@sharedTypes/contenful';
+import { PageRoutes } from '@sharedTypes/enums';
 import { Entry } from 'contentful';
 import { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
-
-import { LoadingProjects, Page, Project, Spacer } from '../../components';
-import { client } from '../../services/contentful';
-import { TypeProject } from '../../types/contenful';
 
 const Render = () => {
   const [projects, setProjects] = useState<
@@ -23,15 +24,12 @@ const Render = () => {
         setProjects(res.items);
         setProjectsLoading(false);
       })
-      .catch(() =>
-        // I mean... if this errors may as well just send people to Linkedin ... yikes
-        window.location.replace('https://www.linkedin.com/in/chaycarnell/'),
-      );
+      .catch(() => window.location.replace(ExternalLinks.LINKEDIN));
 
   useEffect(() => {
     ReactGA.send({
       hitType: 'pageview',
-      page: '/portfolio',
+      page: PageRoutes.PORTFOLIO,
       title: 'portfolio',
     });
     getProjects();
