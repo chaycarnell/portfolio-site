@@ -50,7 +50,11 @@ const Render = ({ project }: { project: TypeProject['fields'] }) => {
       {imagesLoaded ? (
         <S.DesktopCarousel swipeable={false}>
           {projectImage.map(image => (
-            <img key={image.sys.id} src={image.fields.file?.url as string} />
+            <img
+              key={image.sys.id}
+              src={image.fields.file?.url as string}
+              alt={(image.fields.description as string) || 'project image'}
+            />
           ))}
         </S.DesktopCarousel>
       ) : (
@@ -67,7 +71,7 @@ const Render = ({ project }: { project: TypeProject['fields'] }) => {
           <Chip key={technology}>{technology}</Chip>
         ))}
       </S.ChipWrapper>
-      {Array.isArray(references) && (
+      {Array.isArray(references) && references.length > 0 && (
         <>
           <br />
           <Text type="bold" size={textOptions.bSize}>

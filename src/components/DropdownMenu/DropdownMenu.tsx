@@ -15,13 +15,25 @@ const Render = ({
   const closeMenu = useCallback(() => setOpen(false), [setOpen]);
   return (
     <S.DropdownMenu open={open} aria-hidden={!open} {...props}>
-      <NavLink to={PageRoutes.ROOT} onClick={closeMenu}>
+      <NavLink
+        aria-disabled={!open}
+        aria-label="About"
+        to={PageRoutes.ROOT}
+        onClick={closeMenu}>
         About
       </NavLink>
-      <NavLink to={PageRoutes.PORTFOLIO} onClick={closeMenu}>
+      <NavLink
+        aria-label="Portfolio"
+        aria-disabled={!open}
+        to={PageRoutes.PORTFOLIO}
+        onClick={closeMenu}>
         Portfolio
       </NavLink>
-      <NavLink to={PageRoutes.FEEDBACK} onClick={closeMenu}>
+      <NavLink
+        aria-label="Feedback"
+        aria-disabled={!open}
+        to={PageRoutes.FEEDBACK}
+        onClick={closeMenu}>
         Feedback
       </NavLink>
     </S.DropdownMenu>

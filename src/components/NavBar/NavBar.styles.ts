@@ -90,7 +90,7 @@ export const BottomContent = styled.div<ResponsiveLayoutProps>`
     $mobile ? 'max-content 1fr' : '1fr'};
 `;
 
-export const NavWrapper = styled.div`
+export const NavWrapper = styled.nav`
   display: grid;
   -ms-flex-pack: center;
   justify-items: center;

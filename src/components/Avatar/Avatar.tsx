@@ -21,7 +21,7 @@ const Render = ({ src }: { src: string }) => {
         <S.AvatarSkeleton circle={true} />
       </SkeletonTheme>
     );
-  return <S.Avatar src={src} />;
+  return <S.Avatar src={src} alt="profile mage" />;
 };
 
 export default Render;
