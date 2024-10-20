@@ -80,8 +80,8 @@ const Render = ({
         </S.BottomContent>
         {!isMobile && (
           <S.NavWrapper>
-            <NavLink to={PageRoutes.ROOT} aria-label="About">
-              About
+            <NavLink to={PageRoutes.ROOT} aria-label="Profile">
+              Profile
             </NavLink>
             <NavLink to={PageRoutes.PORTFOLIO} aria-label="Portfolio">
               Portfolio

@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import Skeleton from 'react-loading-skeleton';
 
+import Helmet from 'react-helmet';
+
 // Default rich text options
 const textOptions = {
   pSize: '16px',
@@ -30,44 +32,50 @@ const Render = ({
   const profileFields = profile?.['fields'];
 
   return (
-    <Page scrollable fullWidth>
-      <ContentCard margin="12px" padding="12px" center>
-        {(profileLoading && (
-          <>
-            <Skeleton count={6} />
-            <br />
-            <Skeleton count={6} />
-          </>
-        )) || (
-          <>
-            <RichText
-              document={profileFields?.about}
-              textOptions={textOptions}
-            />
-            <ContentCard>
-              <Text type="regular" size={textOptions.pSize}>
-                Not convinced? Check out{' '}
-                <NavLink
-                  to={PageRoutes.PORTFOLIO}
-                  color="#444"
-                  weight={'bold'}
-                  size={textOptions.bSize}>
-                  my portfolio
-                </NavLink>{' '}
-                or{' '}
-                <NavLink
-                  to={PageRoutes.FEEDBACK}
-                  color="#444"
-                  weight={'bold'}
-                  size={textOptions.bSize}>
-                  see what people say about me!
-                </NavLink>
-              </Text>
-            </ContentCard>
-          </>
-        )}
-      </ContentCard>
-    </Page>
+    <>
+      <Helmet>
+        <title>Profile | Chay Carnell</title>
+        <meta name="description" content="Profile of Chay Carnell" />
+      </Helmet>
+      <Page scrollable fullWidth>
+        <ContentCard margin="12px" padding="12px" center>
+          {(profileLoading && (
+            <>
+              <Skeleton count={6} />
+              <br />
+              <Skeleton count={6} />
+            </>
+          )) || (
+            <>
+              <RichText
+                document={profileFields?.about}
+                textOptions={textOptions}
+              />
+              <ContentCard>
+                <Text type="regular" size={textOptions.pSize}>
+                  Not convinced? Check out{' '}
+                  <NavLink
+                    to={PageRoutes.PORTFOLIO}
+                    color="#444"
+                    weight={'bold'}
+                    size={textOptions.bSize}>
+                    my portfolio
+                  </NavLink>{' '}
+                  or{' '}
+                  <NavLink
+                    to={PageRoutes.FEEDBACK}
+                    color="#444"
+                    weight={'bold'}
+                    size={textOptions.bSize}>
+                    see what people say about me!
+                  </NavLink>
+                </Text>
+              </ContentCard>
+            </>
+          )}
+        </ContentCard>
+      </Page>
+    </>
   );
 };
 

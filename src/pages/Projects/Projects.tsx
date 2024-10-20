@@ -6,6 +6,7 @@ import { PageRoutes } from '@sharedTypes/enums';
 import { Entry } from 'contentful';
 import { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
+import Helmet from 'react-helmet';
 
 const Render = () => {
   const [projects, setProjects] = useState<
@@ -36,13 +37,22 @@ const Render = () => {
   }, []);
 
   return (
-    <Page scrollable fullWidth>
-      {(projectsLoading && <LoadingProjects />) ||
-        projects.map(project => (
-          <Project key={project.sys.id} project={project.fields} />
-        ))}
-      <Spacer $space={'12px'} />
-    </Page>
+    <>
+      <Helmet>
+        <title>Portfolio | Chay Carnell</title>
+        <meta
+          name="description"
+          content="Professional project portfolio Chay Carnell has delivered for clients"
+        />
+      </Helmet>
+      <Page scrollable fullWidth>
+        {(projectsLoading && <LoadingProjects />) ||
+          projects.map(project => (
+            <Project key={project.sys.id} project={project.fields} />
+          ))}
+        <Spacer $space={'12px'} />
+      </Page>
+    </>
   );
 };
 

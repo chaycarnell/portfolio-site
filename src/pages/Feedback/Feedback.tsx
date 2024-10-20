@@ -6,6 +6,7 @@ import { PageRoutes } from '@sharedTypes/enums';
 import { EntryCollection } from 'contentful';
 import { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
+import Helmet from 'react-helmet';
 
 const Render = () => {
   const [feedback, setFeedback] =
@@ -33,13 +34,22 @@ const Render = () => {
   }, []);
 
   return (
-    <Page scrollable fullWidth>
-      <Text type="padded" size={'16px'}>
-        Samples below are from formal performance reviews and colleague
-        recognition. All feedback sources can be verified at request.
-      </Text>
-      <FeedbackBox feedback={feedback} />
-    </Page>
+    <>
+      <Helmet>
+        <title>Feedback | Chay Carnell</title>
+        <meta
+          name="description"
+          content="Professional feedback Chay Carnell has received"
+        />
+      </Helmet>
+      <Page scrollable fullWidth>
+        <Text type="padded" size={'16px'}>
+          Samples below are from formal performance reviews and colleague
+          recognition. All feedback sources can be verified at request.
+        </Text>
+        <FeedbackBox feedback={feedback} />
+      </Page>
+    </>
   );
 };
 

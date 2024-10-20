@@ -16,12 +16,12 @@ const Render = ({
   return (
     <S.DropdownMenu open={open} aria-hidden={!open} {...props}>
       <NavLink
-        aria-label="About"
+        aria-label="Profile"
         aria-hidden={!open}
         aria-disabled={!open}
         to={PageRoutes.ROOT}
         onClick={closeMenu}>
-        About
+        Profile
       </NavLink>
       <NavLink
         aria-label="Portfolio"
