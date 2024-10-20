@@ -4,9 +4,8 @@ import { PageRoutes } from '@sharedTypes/enums';
 import { Entry } from 'contentful';
 import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
-import Skeleton from 'react-loading-skeleton';
-
 import Helmet from 'react-helmet';
+import Skeleton from 'react-loading-skeleton';
 
 // Default rich text options
 const textOptions = {
