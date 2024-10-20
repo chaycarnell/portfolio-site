@@ -33,8 +33,8 @@ const Render = () => {
   return (
     <Page scrollable fullWidth>
       <Text type="padded" size={'16px'}>
-        Samples below are from both formal performance reviews and recognition.
-        All feedback can be verified at request.
+        Samples below are from formal performance reviews and colleague
+        recognition. All feedback sources can be verified at request.
       </Text>
       <FeedbackBox feedback={feedback} />
     </Page>
