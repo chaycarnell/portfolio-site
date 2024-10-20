@@ -16,14 +16,16 @@ const Render = ({
   return (
     <S.DropdownMenu open={open} aria-hidden={!open} {...props}>
       <NavLink
-        aria-disabled={!open}
         aria-label="About"
+        aria-hidden={!open}
+        aria-disabled={!open}
         to={PageRoutes.ROOT}
         onClick={closeMenu}>
         About
       </NavLink>
       <NavLink
         aria-label="Portfolio"
+        aria-hidden={!open}
         aria-disabled={!open}
         to={PageRoutes.PORTFOLIO}
         onClick={closeMenu}>
@@ -31,6 +33,7 @@ const Render = ({
       </NavLink>
       <NavLink
         aria-label="Feedback"
+        aria-hidden={!open}
         aria-disabled={!open}
         to={PageRoutes.FEEDBACK}
         onClick={closeMenu}>
