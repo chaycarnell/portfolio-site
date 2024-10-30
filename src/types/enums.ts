@@ -1,6 +1,6 @@
-export enum PageRoutes {
-  ROOT = '/',
-  PROFILE = '/profile',
-  FEEDBACK = '/feedback',
-  PORTFOLIO = '/portfolio',
-}
+export const PageRoutes = Object.freeze({
+  ROOT: '/',
+  PROFILE: '/profile',
+  FEEDBACK: '/feedback',
+  PORTFOLIO: '/portfolio',
+});
