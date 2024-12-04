@@ -12,7 +12,6 @@
   "scripts": {
     "build": "tsc && vite build --emptyOutDir",
     "check:audit": "yarn npm audit --severity high",
-    "check:outdated": "yarn outdated || true",
     "check:types": "tsc --noEmit",
     "dev": "vite",
     "generate:contentful-types": "cf-content-types-generator -s REPLACE_ME  -t REPLACE_ME -o ./src/types",
