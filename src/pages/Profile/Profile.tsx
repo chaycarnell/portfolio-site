@@ -4,7 +4,6 @@ import { PageRoutes } from '@sharedTypes/enums';
 import { Entry } from 'contentful';
 import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
-import Helmet from 'react-helmet';
 import Skeleton from 'react-loading-skeleton';
 
 // Default rich text options
@@ -32,10 +31,8 @@ const Render = ({
 
   return (
     <>
-      <Helmet>
-        <title>Profile | Chay Carnell</title>
-        <meta name="description" content="Profile of Chay Carnell" />
-      </Helmet>
+      <title>Profile | Chay Carnell</title>
+      <meta name="description" content="Profile of Chay Carnell" />
       <Page scrollable fullWidth>
         <ContentCard margin="12px" padding="12px" center>
           {(profileLoading && (

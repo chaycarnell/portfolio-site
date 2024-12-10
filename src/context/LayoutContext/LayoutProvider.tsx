@@ -40,7 +40,7 @@ export const LayoutProvider = ({
   }, [viewport]);
 
   return (
-    <LayoutContext.Provider
+    <LayoutContext
       value={{
         viewport,
         isMobile,
@@ -49,6 +49,6 @@ export const LayoutProvider = ({
         setShowHeader,
       }}>
       {children}
-    </LayoutContext.Provider>
+    </LayoutContext>
   );
 };

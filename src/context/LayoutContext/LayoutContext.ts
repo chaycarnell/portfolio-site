@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, use } from 'react';
 
 import {
   LayoutBreakPoints,
@@ -22,4 +22,4 @@ export const LayoutContext = createContext<LayoutContextProps>({
   setShowHeader: () => {},
 });
 
-export const useViewport = (): LayoutContextProps => useContext(LayoutContext);
+export const useViewport = (): LayoutContextProps => use(LayoutContext);

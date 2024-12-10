@@ -6,7 +6,6 @@ import { PageRoutes } from '@sharedTypes/enums';
 import { EntryCollection } from 'contentful';
 import { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
-import Helmet from 'react-helmet';
 
 const Render = () => {
   const [feedback, setFeedback] =
@@ -35,13 +34,11 @@ const Render = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Feedback | Chay Carnell</title>
-        <meta
-          name="description"
-          content="Professional feedback Chay Carnell has received"
-        />
-      </Helmet>
+      <title>Feedback | Chay Carnell</title>
+      <meta
+        name="description"
+        content="Professional feedback Chay Carnell has received"
+      />
       <Page scrollable fullWidth>
         <Text type="padded" size={'16px'}>
           Samples below are from formal performance reviews and colleague
