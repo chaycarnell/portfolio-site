@@ -297,15 +297,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-react-renderer@npm:16.0.0":
-  version: 16.0.0
-  resolution: "@contentful/rich-text-react-renderer@npm:16.0.0"
+"@contentful/content-source-maps@npm:^0.11.7":
+  version: 0.11.7
+  resolution: "@contentful/content-source-maps@npm:0.11.7"
+  dependencies:
+    "@vercel/stega": "npm:^0.1.2"
+    json-pointer: "npm:^0.6.2"
+  checksum: 10/7d228f73fc6be3aa2f341fcae7d15cdc60565d81dc9b0770a33f5d50aa729faeb6e33a19c2b8211932119857d06ab858e5e60da9778a5901f06940c7d2ecb78a
+  languageName: node
+  linkType: hard
+
+"@contentful/rich-text-react-renderer@npm:16.0.1":
+  version: 16.0.1
+  resolution: "@contentful/rich-text-react-renderer@npm:16.0.1"
   dependencies:
     "@contentful/rich-text-types": "npm:^17.0.0"
   peerDependencies:
-    react: ^16.8.6 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-  checksum: 10/877922b1d6ccd701336ac4bf9e0ac8edcd241d6f9071937e7b543865bd10db0d71575d5d8f5fb0274d023c707b4269f215c6aaaf78f2395ecde335d077c069cc
+    react: ^16.8.6 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10/05e1906ce4bebf5884f0ad0b04dc5de32c38f9d90195a13ce3f6214cd1f5ef608043f47be0b574ecd88edd8ea1d578fd6fc45c604379fc127c1a5257a610f365
   languageName: node
   linkType: hard
 
@@ -1975,18 +1985,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful@npm:11.3.1, contentful@npm:^11.1.4":
-  version: 11.3.1
-  resolution: "contentful@npm:11.3.1"
+"contentful@npm:11.3.2":
+  version: 11.3.2
+  resolution: "contentful@npm:11.3.2"
   dependencies:
-    "@contentful/content-source-maps": "npm:^0.11.6"
+    "@contentful/content-source-maps": "npm:^0.11.7"
     "@contentful/rich-text-types": "npm:^16.6.1"
     axios: "npm:^1.7.4"
     contentful-resolve-response: "npm:^1.9.0"
     contentful-sdk-core: "npm:^9.0.1"
     json-stringify-safe: "npm:^5.0.1"
     type-fest: "npm:^4.0.0"
-  checksum: 10/a78acd899a9f67b6fe03f4f0d2faf3bd1ea724a61b013417e6460c3648368ba19bdb8fa370e789893d5bcad1cf8f3fceb769157279b5cd3efd59dc40f03fb4e7
+  checksum: 10/0784a373717085fc4b88f0b022d96ace7f5197481499d3392502d9a8f171e17aa60c0b4d5ae768f94974e6eb233983d240253cec253611f8b22a54111727e200
   languageName: node
   linkType: hard
 
@@ -2002,6 +2012,21 @@ __metadata:
     json-stringify-safe: "npm:^5.0.1"
     type-fest: "npm:^4.0.0"
   checksum: 10/eb913a79e38d87bc7fb3a79952e4d7c5a1de5cccfbe0a012e8131c9c1e5a0a525cfcb7eaea971b02fb9e57b9e49c71ce96dd7096c3f65483992017ef70de80e5
+  languageName: node
+  linkType: hard
+
+"contentful@npm:^11.1.4":
+  version: 11.3.1
+  resolution: "contentful@npm:11.3.1"
+  dependencies:
+    "@contentful/content-source-maps": "npm:^0.11.6"
+    "@contentful/rich-text-types": "npm:^16.6.1"
+    axios: "npm:^1.7.4"
+    contentful-resolve-response: "npm:^1.9.0"
+    contentful-sdk-core: "npm:^9.0.1"
+    json-stringify-safe: "npm:^5.0.1"
+    type-fest: "npm:^4.0.0"
+  checksum: 10/a78acd899a9f67b6fe03f4f0d2faf3bd1ea724a61b013417e6460c3648368ba19bdb8fa370e789893d5bcad1cf8f3fceb769157279b5cd3efd59dc40f03fb4e7
   languageName: node
   linkType: hard
 
@@ -4570,7 +4595,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "portfolio-site@workspace:."
   dependencies:
-    "@contentful/rich-text-react-renderer": "npm:16.0.0"
+    "@contentful/rich-text-react-renderer": "npm:16.0.1"
     "@contentful/rich-text-types": "npm:17.0.0"
     "@types/react": "npm:^19.0.1"
     "@types/react-dom": "npm:^19.0.2"
@@ -4580,7 +4605,7 @@ __metadata:
     "@vitejs/plugin-react": "npm:^4.3.4"
     axios: "npm:1.7.9"
     cf-content-types-generator: "npm:^2.15.5"
-    contentful: "npm:11.3.1"
+    contentful: "npm:11.3.2"
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
