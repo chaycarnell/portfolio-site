@@ -1,3 +1,3 @@
-export const ExternalLinks = Object.freeze({
+export const ExternalLinks = {
   LINKEDIN: 'https://www.linkedin.com/in/chaycarnell/',
-});
+} as const;
