@@ -3,6 +3,7 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"],
     "module": "ESNext",
     "skipLibCheck": true,
 
@@ -21,16 +22,15 @@
     "noFallthroughCasesInSwitch": true,
 
     "rootDir": "./src",
-    "baseUrl": "./",
 
     /* Custom Alias Paths */
     "paths": {
-      "@components": ["src/components"],
-      "@pages": ["src/pages"],
-      "@config/*": ["src/config/*"],
-      "@sharedTypes/*": ["src/types/*"],
-      "@context/*": ["src/context/*"],
-      "@services/*": ["src/services/*"]
+      "@components": ["./src/components"],
+      "@pages": ["./src/pages"],
+      "@config/*": ["./src/config/*"],
+      "@sharedTypes/*": ["./src/types/*"],
+      "@context/*": ["./src/context/*"],
+      "@services/*": ["./src/services/*"]
     }
   },
   "include": ["./src"],

@@ -1,5 +1,4 @@
-import { createClient } from 'contentful';
-
+import { createClient } from '../../utils/fetchClient';
 import { ContentfulConfig } from './config';
 
 // Initialise contentful client

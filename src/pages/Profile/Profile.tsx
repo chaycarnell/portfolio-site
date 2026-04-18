@@ -1,7 +1,6 @@
 import { ContentCard, NavLink, Page, RichText, Text } from '@components';
-import { TypeProfile } from '@sharedTypes/contenful';
+import { Entry, TypeProfile } from '@sharedTypes/contenful';
 import { PageRoutes } from '@sharedTypes/enums';
-import { Entry } from 'contentful';
 import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import Skeleton from 'react-loading-skeleton';
@@ -16,7 +15,7 @@ const Render = ({
   profile,
   profileLoading = true,
 }: {
-  profile: Entry<TypeProfile, undefined, string> | undefined;
+  profile: Entry<TypeProfile> | undefined;
   profileLoading: boolean;
 }) => {
   useEffect(() => {

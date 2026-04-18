@@ -7,7 +7,7 @@ import {
 } from './LayoutContext.types';
 
 interface LayoutContextProps {
-  viewport: ViewPortType | null;
+  viewport: ViewPortType;
   isMobile: boolean;
   mobileBreakPointPx: number;
   showHeader: boolean;

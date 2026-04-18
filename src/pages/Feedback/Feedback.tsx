@@ -1,15 +1,13 @@
 import { FeedbackBox, Page, Text } from '@components';
 import { ExternalLinks } from '@config/links';
 import { client } from '@services/contentful/contentful';
-import { TypeFeedback } from '@sharedTypes/contenful';
+import { EntryCollection, TypeFeedback } from '@sharedTypes/contenful';
 import { PageRoutes } from '@sharedTypes/enums';
-import { EntryCollection } from 'contentful';
 import { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
 
 const Render = () => {
-  const [feedback, setFeedback] =
-    useState<EntryCollection<TypeFeedback, undefined, string>>();
+  const [feedback, setFeedback] = useState<EntryCollection<TypeFeedback>>();
 
   const getFeedback = () => {
     client

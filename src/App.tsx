@@ -6,16 +6,13 @@ import { LayoutProvider } from '@context/LayoutContext/LayoutProvider';
 import { Feedback, Profile, Projects } from '@pages';
 import { ContentEntries } from '@services/contentful/config';
 import { client } from '@services/contentful/contentful';
-import { TypeProfile } from '@sharedTypes/contenful';
+import { Entry, TypeProfile } from '@sharedTypes/contenful';
 import { PageRoutes } from '@sharedTypes/enums';
-import { Entry } from 'contentful';
 import { useEffect, useState } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 const Content = () => {
-  const [profile, setProfile] = useState<
-    Entry<TypeProfile, undefined, string> | undefined
-  >();
+  const [profile, setProfile] = useState<Entry<TypeProfile> | undefined>();
   const { viewport, isMobile, showHeader } = useViewport();
   const [profileLoading, setProfileLoading] = useState(true);
 

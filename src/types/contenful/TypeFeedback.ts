@@ -1,4 +1,4 @@
-import type { EntryFields, EntrySkeletonType } from 'contentful';
+import type { EntryFields, EntrySkeletonType } from './contentful.types';
 
 export interface TypeFeedbackFields {
   feedback?: EntryFields.RichText;

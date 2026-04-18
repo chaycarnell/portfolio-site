@@ -1,5 +1,5 @@
 import { TypeProject } from '@sharedTypes/contenful';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 import { Chip, RichText, Text } from '../index';
@@ -23,8 +23,9 @@ const Render = ({ project }: { project: TypeProject['fields'] }) => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   // Get image source files loaded to browser and set loaded state once load is complete
-  const getImages = useCallback(async () => {
-    await Promise.all(
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all(
       projectImage.map(
         image =>
           new Promise(resolve => {
@@ -33,14 +34,13 @@ const Render = ({ project }: { project: TypeProject['fields'] }) => {
             imageElement.src = image.fields.file?.url as string;
           }),
       ),
-    );
-    // Set loaded state
-    setImagesLoaded(true);
+    ).then(() => {
+      if (!cancelled) setImagesLoaded(true);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [projectImage]);
-
-  useEffect(() => {
-    getImages();
-  }, [getImages]);
 
   return (
     <S.ProjectWrapper>

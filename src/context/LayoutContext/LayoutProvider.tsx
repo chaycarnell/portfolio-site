@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { LayoutContext } from './LayoutContext';
 import {
@@ -7,37 +7,27 @@ import {
   ViewPortType,
 } from './LayoutContext.types';
 
+const getViewport = (breakpoint: number): ViewPortType =>
+  window.innerWidth >= breakpoint
+    ? SupportedViewPorts.DESKTOP
+    : SupportedViewPorts.MOBILE;
+
 export const LayoutProvider = ({
   mobileBreakPointPx = LayoutBreakPoints.MOBILE,
   children,
 }: React.PropsWithChildren<{ mobileBreakPointPx: number }>) => {
-  const [viewport, setViewport] = useState<ViewPortType | null>(null);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [viewport, setViewport] = useState<ViewPortType>(() =>
+    getViewport(mobileBreakPointPx),
+  );
   const [showHeader, setShowHeader] = useState<boolean>(true);
 
-  // Set viewport on window resize events
-  const handleWindowResize = useCallback(
-    () =>
-      window.innerWidth >= mobileBreakPointPx
-        ? setViewport(SupportedViewPorts.DESKTOP)
-        : setViewport(SupportedViewPorts.MOBILE),
-    [mobileBreakPointPx],
-  );
+  const isMobile = viewport === 'mobile';
 
   useEffect(() => {
-    // Call initially on first render
-    handleWindowResize();
-    window.addEventListener('resize', handleWindowResize);
-    // Cleanup
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, [handleWindowResize]);
-
-  useEffect(() => {
-    // Update boolean isMobile value whenever viewport value changes
-    setIsMobile(viewport === 'mobile');
-  }, [viewport]);
+    const handleResize = () => setViewport(getViewport(mobileBreakPointPx));
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [mobileBreakPointPx]);
 
   return (
     <LayoutContext

@@ -52,6 +52,13 @@ export default [
     },
   },
   {
-    ignores: ['dist/**', 'node_modules/**', '.eslintrc.cjs'],
+    files: ['src/types/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-namespace': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+    },
+  },
+  {
+    ignores: ['dist/**', 'node_modules/**'],
   },
 ];

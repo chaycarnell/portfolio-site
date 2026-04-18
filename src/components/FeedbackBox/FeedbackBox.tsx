@@ -1,5 +1,4 @@
-import { TypeFeedback } from '@sharedTypes/contenful';
-import { EntryCollection } from 'contentful';
+import { EntryCollection, TypeFeedback } from '@sharedTypes/contenful';
 
 import { RichText, Text } from '../';
 import * as S from './FeedbackBox.styles';
@@ -13,7 +12,7 @@ const textOptions = {
 const Render = ({
   feedback,
 }: {
-  feedback: EntryCollection<TypeFeedback, undefined, string> | undefined;
+  feedback: EntryCollection<TypeFeedback> | undefined;
 }) => (
   <S.FeedbackWrapper>
     {feedback?.['items'].map(item => (
