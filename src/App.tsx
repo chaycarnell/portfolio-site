@@ -1,22 +1,107 @@
-import { NavBar, Shell } from '@components';
 import { ExternalLinks } from '@config/links';
-import { useViewport } from '@context/LayoutContext/LayoutContext';
-import { LayoutBreakPoints } from '@context/LayoutContext/LayoutContext.types';
-import { LayoutProvider } from '@context/LayoutContext/LayoutProvider';
 import { Feedback, Profile, Projects } from '@pages';
 import { ContentEntries } from '@services/contentful/config';
 import { client } from '@services/contentful/contentful';
 import { Entry, TypeProfile } from '@sharedTypes/contenful';
 import { PageRoutes } from '@sharedTypes/enums';
 import { useEffect, useState } from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import ReactGA from 'react-ga4';
+import {
+  HashRouter,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
+
+const navItems = [
+  { id: PageRoutes.ROOT, label: 'Profile', idx: '01' },
+  { id: PageRoutes.PORTFOLIO, label: 'Portfolio', idx: '02' },
+  { id: PageRoutes.FEEDBACK, label: 'Feedback', idx: '03' },
+];
+
+const Sidebar = ({ profile }: { profile: Entry<TypeProfile> | undefined }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const fields = profile?.fields;
+
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-identity">
+        {fields?.portrait?.fields.file?.url && (
+          <div className="avatar-frame">
+            <img
+              src={fields.portrait.fields.file.url}
+              alt={fields?.name || 'Portrait'}
+            />
+          </div>
+        )}
+        <div>
+          <h2 className="name">{fields?.name}</h2>
+          <div className="role">{fields?.role}</div>
+        </div>
+      </div>
+
+      <nav className="sidebar-nav">
+        {navItems.map(n => (
+          <button
+            key={n.id}
+            className={
+              'nav-item' + (location.pathname === n.id ? ' active' : '')
+            }
+            onClick={() => navigate(n.id)}>
+            <span className="idx">{n.idx}</span>
+            <span>{n.label}</span>
+            <span className="arrow">&rarr;</span>
+          </button>
+        ))}
+      </nav>
+
+      <div className="sidebar-foot">
+        <div className="links">
+          {Array.isArray(fields?.contacts) &&
+            fields.contacts.map(contact => (
+              <a
+                key={contact.name}
+                className="btn"
+                href={contact.value}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  ReactGA.event({
+                    category: 'Interaction',
+                    action: `View ${contact.name}`,
+                  })
+                }>
+                {contact.name} &#x2197;
+              </a>
+            ))}
+          {fields?.resume?.fields.file?.url && (
+            <a
+              className="btn"
+              href={`https://${fields.resume.fields.file.url}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                ReactGA.event({
+                  category: 'Interaction',
+                  action: 'Download Resume',
+                })
+              }>
+              Resume &#x2197;
+            </a>
+          )}
+        </div>
+      </div>
+    </aside>
+  );
+};
 
 const Content = () => {
   const [profile, setProfile] = useState<Entry<TypeProfile> | undefined>();
-  const { viewport, isMobile, showHeader } = useViewport();
   const [profileLoading, setProfileLoading] = useState(true);
 
-  const getProfile = () =>
+  useEffect(() => {
     client
       .getEntry<TypeProfile>(ContentEntries.PROFILE)
       .then(res => {
@@ -24,47 +109,32 @@ const Content = () => {
         setProfileLoading(false);
       })
       .catch(() => window.location.replace(ExternalLinks.LINKEDIN));
-
-  useEffect(() => {
-    getProfile();
   }, []);
 
+  if (profileLoading) return null;
+
   return (
-    <Shell $viewport={viewport}>
-      <NavBar
-        profile={profile?.fields}
-        profileLoading={profileLoading}
-        isMobile={isMobile}
-        showHeader={showHeader}
-      />
-      <Routes>
-        <Route
-          path={PageRoutes.ROOT}
-          element={
-            <Profile profile={profile} profileLoading={profileLoading} />
-          }
-        />
-        <Route path={PageRoutes.PORTFOLIO} element={<Projects />} />
-        <Route path={PageRoutes.FEEDBACK} element={<Feedback />} />
-        <Route
-          path="*"
-          element={
-            <Profile profile={profile} profileLoading={profileLoading} />
-          }
-        />
-      </Routes>
-    </Shell>
+    <div className="shell">
+      <Sidebar profile={profile} />
+      <main className="main">
+        <Routes>
+          <Route
+            path={PageRoutes.ROOT}
+            element={<Profile profile={profile} />}
+          />
+          <Route path={PageRoutes.PORTFOLIO} element={<Projects />} />
+          <Route path={PageRoutes.FEEDBACK} element={<Feedback />} />
+          <Route path="*" element={<Profile profile={profile} />} />
+        </Routes>
+      </main>
+    </div>
   );
 };
 
-// Wrap router and contexts
-// NOTE: Using hash router here because of how Github pages responds to browser router page refreshes with 404
-const Render = () => (
-  <LayoutProvider mobileBreakPointPx={LayoutBreakPoints.MOBILE}>
-    <HashRouter>
-      <Content />
-    </HashRouter>
-  </LayoutProvider>
+const App = () => (
+  <HashRouter>
+    <Content />
+  </HashRouter>
 );
 
-export default Render;
+export default App;

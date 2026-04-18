@@ -1,77 +1,88 @@
-import { ContentCard, NavLink, Page, RichText, Text } from '@components';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Entry, TypeProfile } from '@sharedTypes/contenful';
 import { PageRoutes } from '@sharedTypes/enums';
+import { runReveals } from '@utils/reveals';
+import { richTextOptions } from '@utils/richTextOptions';
 import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
-import Skeleton from 'react-loading-skeleton';
+import { useNavigate } from 'react-router-dom';
 
-// Default rich text options
-const textOptions = {
-  pSize: '16px',
-  bSize: '18px',
-};
+const Profile = ({ profile }: { profile: Entry<TypeProfile> | undefined }) => {
+  const navigate = useNavigate();
+  const fields = profile?.fields;
 
-const Render = ({
-  profile,
-  profileLoading = true,
-}: {
-  profile: Entry<TypeProfile> | undefined;
-  profileLoading: boolean;
-}) => {
   useEffect(() => {
     ReactGA.send({
       hitType: 'pageview',
-      page: PageRoutes.PROFILE,
+      page: PageRoutes.ROOT,
       title: 'profile',
     });
+    const cleanup = runReveals();
+    return cleanup;
   }, []);
 
-  const profileFields = profile?.['fields'];
-
   return (
-    <>
-      <title>Profile | Chay Carnell</title>
-      <meta name="description" content="Profile of Chay Carnell" />
-      <Page scrollable fullWidth>
-        <ContentCard margin="12px" padding="12px" center>
-          {(profileLoading && (
-            <>
-              <Skeleton count={6} />
-              <br />
-              <Skeleton count={6} />
-            </>
-          )) || (
-            <>
-              <RichText
-                document={profileFields?.about}
-                textOptions={textOptions}
-              />
-              <ContentCard>
-                <Text type="regular" size={textOptions.pSize}>
-                  Not convinced? Check out{' '}
-                  <NavLink
-                    to={PageRoutes.PORTFOLIO}
-                    color="#444"
-                    weight={'bold'}
-                    size={textOptions.bSize}>
-                    my portfolio
-                  </NavLink>{' '}
-                  or{' '}
-                  <NavLink
-                    to={PageRoutes.FEEDBACK}
-                    color="#444"
-                    weight={'bold'}
-                    size={textOptions.bSize}>
-                    see what people say about me!
-                  </NavLink>
-                </Text>
-              </ContentCard>
-            </>
-          )}
-        </ContentCard>
-      </Page>
-    </>
+    <div className="view">
+      <div className="topbar">
+        <div className="crumb">
+          <span>Chay Carnell</span>
+          <span className="sep">/</span>
+          <span className="cur">Profile</span>
+        </div>
+      </div>
+
+      <div className="page-head reveal">
+        <div className="eyebrow">About</div>
+        <h1>
+          Building product-driven software from{' '}
+          <em>startups to global brands</em>.
+        </h1>
+      </div>
+
+      {fields?.about && (
+        <div className="bio reveal">
+          {documentToReactComponents(fields.about, richTextOptions)}
+        </div>
+      )}
+
+      {(fields?.skills || fields?.technologies) && (
+        <>
+          <div className="section-title reveal">Skills</div>
+          <div className="skills reveal">
+            {fields?.skills?.map(s => (
+              <span className="skill primary" key={s}>
+                {s}
+              </span>
+            ))}
+            {fields?.technologies?.map(s => (
+              <span className="skill" key={s}>
+                {s}
+              </span>
+            ))}
+          </div>
+        </>
+      )}
+
+      <div className="cta-strip reveal">
+        <h3>
+          Not convinced? <em>See what people say about working with me</em>, or
+          take a look at my portfolio.
+        </h3>
+        <div className="cta-actions">
+          <button
+            className="cta-primary"
+            onClick={() => navigate(PageRoutes.PORTFOLIO)}>
+            View portfolio &rarr;
+          </button>
+          <button
+            className="cta-ghost"
+            onClick={() => navigate(PageRoutes.FEEDBACK)}>
+            Read feedback
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Render;
+export default Profile;

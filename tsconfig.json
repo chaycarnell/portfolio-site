@@ -25,12 +25,11 @@
 
     /* Custom Alias Paths */
     "paths": {
-      "@components": ["./src/components"],
       "@pages": ["./src/pages"],
       "@config/*": ["./src/config/*"],
       "@sharedTypes/*": ["./src/types/*"],
-      "@context/*": ["./src/context/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["./src/services/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": ["./src"],
