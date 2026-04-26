@@ -1,10 +1,9 @@
 import { ExternalLinks } from '@config/links';
-import { Feedback, Profile, Projects } from '@pages';
 import { ContentEntries } from '@services/contentful/config';
 import { client } from '@services/contentful/contentful';
 import { Entry, TypeProfile } from '@sharedTypes/contenful';
 import { PageRoutes } from '@sharedTypes/enums';
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
 import {
   HashRouter,
@@ -13,6 +12,11 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
+
+import Profile from './pages/Profile/Profile';
+
+const Projects = lazy(() => import('./pages/Projects/Projects'));
+const Feedback = lazy(() => import('./pages/Feedback/Feedback'));
 
 const navItems = [
   { id: PageRoutes.ROOT, label: 'Profile', idx: '01' },
@@ -117,15 +121,17 @@ const Content = () => {
     <div className="shell">
       <Sidebar profile={profile} />
       <main className="main">
-        <Routes>
-          <Route
-            path={PageRoutes.ROOT}
-            element={<Profile profile={profile} />}
-          />
-          <Route path={PageRoutes.PORTFOLIO} element={<Projects />} />
-          <Route path={PageRoutes.FEEDBACK} element={<Feedback />} />
-          <Route path="*" element={<Profile profile={profile} />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route
+              path={PageRoutes.ROOT}
+              element={<Profile profile={profile} />}
+            />
+            <Route path={PageRoutes.PORTFOLIO} element={<Projects />} />
+            <Route path={PageRoutes.FEEDBACK} element={<Feedback />} />
+            <Route path="*" element={<Profile profile={profile} />} />
+          </Routes>
+        </Suspense>
       </main>
     </div>
   );

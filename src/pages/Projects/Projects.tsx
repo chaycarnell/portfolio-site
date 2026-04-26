@@ -57,6 +57,7 @@ const ProjectList = ({
                 <img
                   src={p.fields.projectImage[0].fields.file.url}
                   alt={p.fields.title || 'Project thumbnail'}
+                  loading="lazy"
                 />
               </div>
             )}

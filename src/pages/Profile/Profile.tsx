@@ -34,8 +34,7 @@ const Profile = ({ profile }: { profile: Entry<TypeProfile> | undefined }) => {
       <div className="page-head reveal">
         <div className="eyebrow">About</div>
         <h1>
-          Building product-driven software from{' '}
-          <em>startups to global brands</em>.
+          Building quality software for <em>startups and global brands</em>.
         </h1>
       </div>
 
@@ -65,8 +64,8 @@ const Profile = ({ profile }: { profile: Entry<TypeProfile> | undefined }) => {
 
       <div className="cta-strip reveal">
         <h3>
-          Not convinced? <em>See what people say about working with me</em>, or
-          take a look at my portfolio.
+          <em>See what people say about working with me</em>, or take a look at
+          my portfolio.
         </h3>
         <div className="cta-actions">
           <button

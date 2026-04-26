@@ -1,11 +1,8 @@
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Entry, TypeProject } from '@sharedTypes/contenful';
 import { runReveals } from '@utils/reveals';
 import { richTextOptions } from '@utils/richTextOptions';
-import { useEffect, useState } from 'react';
-import { Carousel } from 'react-responsive-carousel';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const ProjectDetail = ({
   project,
@@ -21,37 +18,31 @@ const ProjectDetail = ({
     references = [],
     technologies = [],
   } = project.fields;
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [slide, setSlide] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const goTo = useCallback((index: number) => {
+    const track = trackRef.current;
+    if (track) {
+      track.scrollTo({ left: index * track.clientWidth, behavior: 'smooth' });
+    }
+  }, []);
 
   useEffect(() => {
-    let cancelled = false;
-    Promise.all(
-      projectImage.map(
-        image =>
-          new Promise<void>((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve();
-            img.onerror = () => reject();
-            img.src = image.fields.file?.url as string;
-          }),
-      ),
-    )
-      .then(() => {
-        if (!cancelled) setImagesLoaded(true);
-      })
-      .catch(() => {
-        if (!cancelled) setImagesLoaded(true);
-      });
-    return () => {
-      cancelled = true;
+    const track = trackRef.current;
+    if (!track) return;
+    const onScroll = () => {
+      const idx = Math.round(track.scrollLeft / track.clientWidth);
+      setSlide(idx);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [project.sys.id]);
+    track.addEventListener('scroll', onScroll, { passive: true });
+    return () => track.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     const cleanup = runReveals();
     return cleanup;
-  }, [imagesLoaded]);
+  }, []);
 
   return (
     <div className="view">
@@ -74,26 +65,50 @@ const ProjectDetail = ({
           <h1>{title}</h1>
         </div>
 
-        {imagesLoaded && projectImage.length > 0 && (
+        {projectImage.length > 0 && (
           <div className="carousel-wrapper reveal">
-            <Carousel
-              showThumbs={false}
-              showStatus={projectImage.length > 1}
-              showArrows={projectImage.length > 1}
-              showIndicators={projectImage.length > 1}
-              infiniteLoop
-              swipeable>
-              {projectImage.map(image => (
-                <div key={image.sys.id}>
+            <div className="carousel-track" ref={trackRef}>
+              {projectImage.map((image, i) => (
+                <div className="carousel-slide" key={image.sys.id}>
                   <img
                     src={image.fields.file?.url as string}
                     alt={
                       (image.fields.description as string) || 'project image'
                     }
+                    loading={i === 0 ? 'eager' : 'lazy'}
                   />
                 </div>
               ))}
-            </Carousel>
+            </div>
+            {projectImage.length > 1 && (
+              <>
+                <button
+                  className="carousel-arrow carousel-prev"
+                  onClick={() =>
+                    goTo(
+                      (slide - 1 + projectImage.length) % projectImage.length,
+                    )
+                  }>
+                  &#8249;
+                </button>
+                <button
+                  className="carousel-arrow carousel-next"
+                  onClick={() => goTo((slide + 1) % projectImage.length)}>
+                  &#8250;
+                </button>
+                <div className="carousel-dots">
+                  {projectImage.map((_, i) => (
+                    <button
+                      key={i}
+                      className={
+                        'carousel-dot' + (i === slide ? ' active' : '')
+                      }
+                      onClick={() => goTo(i)}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         )}
 
